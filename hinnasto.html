@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hinnasto — ÄssäGolf Golfsimulaattori Espoo</title>
+<meta name="description" content="ÄssäGolf golfsimulaattorin hinnat Espoossa. Kausihinnasto: talvi 10–28 €/h, kevät/syksy 10–18 €/h, kesä 10 €/h. Sarjakortit ja liikuntaedut käytössä.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--orange:#fb601b;--orange-dim:#d94e12;--bg:#111;--bg-card:#191919;--bg-lift:#212121;--border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);--white:#f0efed;--muted:rgba(240,239,237,0.5);--softer:rgba(240,239,237,0.28);--font-head:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;--pad-x:clamp(20px,5vw,56px);--header-h:60px;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad-x);background:rgba(17,17,17,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.logo{font-family:var(--font-head);font-weight:700;font-size:clamp(18px,3vw,22px);letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
+.logo span{color:var(--orange);}
+nav{display:flex;align-items:center;gap:2px;}
+nav a{font-size:13px;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .18s,background .18s;white-space:nowrap;}
+nav a:hover{color:var(--white);background:rgba(255,255,255,0.05);}
+nav a.active{color:var(--orange);}
+.nav-shop{color:var(--orange)!important;border:1px solid rgba(251,96,27,0.3);}
+.nav-shop:hover{background:rgba(251,96,27,0.07)!important;}
+.nav-cta{background:var(--orange)!important;color:#fff!important;font-weight:500!important;padding:7px 16px!important;}
+.nav-cta:hover{background:var(--orange-dim)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;top:var(--header-h);left:0;right:0;z-index:99;background:rgba(14,14,14,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px var(--pad-x) 20px;flex-direction:column;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:15px;color:var(--muted);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;margin-top:8px;}
+.mobile-menu .m-shop{color:var(--orange)!important;}
+.mobile-menu .m-cta{background:var(--orange);color:#fff!important;text-align:center;border-radius:4px;padding:13px 20px;font-weight:500;border-bottom:none;}
+.page{padding-top:var(--header-h);}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+h1,h2{font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.btn-fill{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--font-body);font-weight:500;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;transition:background .18s,transform .15s;}
+.btn-fill:hover{background:var(--orange-dim);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);font-size:14px;padding:12px 26px;border-radius:4px;border:1px solid var(--border-mid);text-decoration:none;transition:border-color .18s,background .18s;}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.04);}
+
+/* PAGE HERO */
+.page-hero{padding:clamp(40px,6vw,56px) var(--pad-x) clamp(32px,5vw,48px);background:var(--bg-card);border-bottom:1px solid var(--border);}
+.page-hero h1{font-size:clamp(48px,7vw,80px);line-height:.92;margin-bottom:16px;}
+.page-hero p{font-size:16px;font-weight:300;color:var(--muted);max-width:520px;line-height:1.65;}
+
+/* SEASON TABS */
+.season-section{padding:clamp(40px,6vw,64px) var(--pad-x);}
+.season-tabs{display:flex;gap:0;margin-bottom:32px;border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.season-tab{flex:1;padding:13px 16px;background:transparent;border:none;color:var(--muted);font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:all .18s;text-align:center;border-right:1px solid var(--border);}
+.season-tab:last-child{border-right:none;}
+.season-tab.active{background:var(--orange);color:#fff;}
+.season-tab:hover:not(.active){background:var(--bg-lift);color:var(--white);}
+
+.season-panel{display:none;}
+.season-panel.active{display:block;}
+
+.season-dates{font-size:13px;font-weight:300;color:var(--muted);margin-bottom:24px;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:5px;display:inline-block;}
+.season-dates strong{color:var(--white);}
+
+/* Aikataulu-taulukko */
+.price-table{width:100%;border-collapse:collapse;margin-bottom:8px;}
+.price-table th{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--softer);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);}
+.price-table td{padding:13px 16px;border-bottom:1px solid var(--border);font-size:14px;font-weight:300;color:var(--muted);}
+.price-table tr:last-child td{border-bottom:none;}
+.price-table .time-col{color:var(--white);font-weight:400;}
+.price-table .price-col{font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--orange);letter-spacing:.5px;}
+.price-table .day-col{font-size:12px;}
+.price-table tr:hover td{background:var(--bg-lift);}
+
+.table-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:20px;}
+.table-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--softer);padding:14px 16px 0;}
+
+/* Halvin aika highlight */
+.price-low{color:#4ade80!important;}
+.price-mid{color:var(--orange)!important;}
+.price-high{color:#fb9d6b!important;}
+
+/* SARJAKORTIT */
+.sarjakortit-section{padding:0 var(--pad-x) clamp(40px,6vw,64px);}
+.sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.sk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;transition:border-color .2s;}
+.sk-card:hover{border-color:rgba(251,96,27,.3);}
+.sk-left h3{font-family:var(--font-head);font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.sk-left p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.5;}
+.sk-price{text-align:right;flex-shrink:0;}
+.sk-price .big{font-family:var(--font-head);font-weight:700;font-size:36px;color:var(--orange);}
+.sk-price .per{font-size:11px;color:var(--softer);}
+.sk-price .save{font-size:11px;color:#4ade80;margin-top:3px;}
+
+/* LIIKUNTAEDUT */
+.edut-section{padding:0 var(--pad-x) clamp(40px,6vw,64px);}
+.edut-card{background:var(--bg-card);border:1px solid rgba(251,96,27,.25);border-radius:10px;padding:28px 32px;}
+.edut-card h2{font-size:clamp(24px,3vw,34px);margin-bottom:8px;}
+.edut-card p{font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;max-width:560px;margin-bottom:20px;}
+.edut-pills{display:flex;flex-wrap:wrap;gap:10px;}
+.edut-pill{background:rgba(251,96,27,.1);border:1px solid rgba(251,96,27,.25);border-radius:5px;padding:8px 18px;font-size:14px;font-weight:500;color:var(--white);}
+
+/* FAQ */
+.faq-section{padding:0 var(--pad-x) clamp(40px,6vw,64px);}
+.faq-section h2{font-size:clamp(28px,4vw,42px);margin-bottom:32px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;color:var(--white);font-family:var(--font-body);font-size:15px;font-weight:500;text-align:left;padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-q:hover{color:var(--orange);}
+.faq-icon{width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;flex-shrink:0;transition:transform .2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);stroke:var(--orange);}
+.faq-a{font-size:14px;font-weight:300;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px;}
+
+/* CTA */
+.cta-band{background:var(--orange);padding:clamp(48px,7vw,72px) var(--pad-x);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden;}
+.cta-band::before{content:'ÄSSA';position:absolute;right:-20px;top:-30px;font-family:var(--font-head);font-weight:700;font-size:clamp(100px,25vw,280px);color:rgba(0,0,0,0.08);letter-spacing:-5px;user-select:none;pointer-events:none;}
+.cta-band h2{font-family:var(--font-head);font-weight:700;font-size:clamp(32px,5vw,54px);letter-spacing:1px;text-transform:uppercase;color:#fff;line-height:.93;position:relative;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;}
+.btn-wh{background:#fff;color:var(--orange);font-family:var(--font-body);font-weight:600;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .18s;white-space:nowrap;}
+.btn-wh:hover{background:rgba(255,255,255,.9);}
+.btn-gh-cta{border:1px solid rgba(255,255,255,.4);color:#fff;font-size:14px;padding:12px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}
+.btn-gh-cta:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+
+/* FOOTER */
+footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,6vw,56px) var(--pad-x) clamp(24px,3vw,32px);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,4vw,40px);margin-bottom:clamp(24px,4vw,40px);padding-bottom:clamp(24px,4vw,40px);border-bottom:1px solid var(--border);}
+.footer-brand p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65;max-width:240px;margin-top:12px;}
+.footer-col h4{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--softer);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;font-weight:300;color:var(--muted);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:var(--white);}
+.footer-col a.hl{color:var(--orange);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:var(--softer);}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;color:var(--softer);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:var(--muted);}
+
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:860px){.hamburger{display:flex;}nav a:not(.nav-cta):not(.nav-shop){display:none;}.sk-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:640px){nav a:not(.nav-cta){display:none;}.season-tab{font-size:11px;padding:10px 8px;}.cta-band{flex-direction:column;align-items:flex-start;}.cta-btns{width:100%;}.btn-wh,.btn-gh-cta{flex:1;justify-content:center;}.footer-top{grid-template-columns:1fr;}}
+@media(max-width:420px){.nav-shop{display:none;}}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Ässä<span>Golf</span></a>
+  <nav>
+    <a href="/">Etusivu</a>
+    <a href="/sijainnit.html">Sijainnit</a>
+    <a href="/hinnasto.html" class="active">Hinnasto</a>
+    <a href="/valmennus.html">Valmennus</a>
+    <a href="/artikkelit.html">Artikkelit</a>
+    <a href="https://assakauppa.fi" class="nav-shop" target="_blank">Kauppa</a>
+    <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="nav-cta">Varaa vuoro</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/">Etusivu</a>
+  <a href="/sijainnit.html">Sijainnit</a>
+  <a href="/hinnasto.html">Hinnasto</a>
+  <a href="/valmennus.html">Valmennus</a>
+  <a href="/artikkelit.html">Artikkelit</a>
+  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
+  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
+</nav>
+  <button class="hamburger" id="hamburger" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/">Etusivu</a><a href="/sijainnit.html">Sijainnit</a><a href="/hinnasto.html">Hinnasto</a><a href="/artikkelit.html">Artikkelit</a>
+  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
+  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
+</nav>
+
+<div class="page">
+  <div class="page-hero">
+    <p class="eyebrow">Hinnasto</p>
+    <h1>Selkeä<br>hinnoittelu</h1>
+    <p>Hinta vaihtelee vuodenajan ja kellonajan mukaan — hiljaisina aikoina pääset pelaamaan edullisemmin.</p>
+  </div>
+
+  <!-- KAUSIHINNASTO -->
+  <div class="season-section">
+    <p class="eyebrow">Kausihinnasto</p>
+    <h2 style="font-family:var(--font-head);font-size:clamp(28px,4vw,42px);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Valitse kausi</h2>
+
+    <div class="season-tabs">
+      <button class="season-tab active" onclick="switchSeason('talvi',this)">❄️ Talvi</button>
+      <button class="season-tab" onclick="switchSeason('kevat',this)">🌿 Kevät & Syksy</button>
+      <button class="season-tab" onclick="switchSeason('kesa',this)">☀️ Kesä</button>
+    </div>
+
+    <!-- TALVI -->
+    <div class="season-panel active" id="panel-talvi">
+      <div class="season-dates"><strong>Voimassa:</strong> Marraskuu — Maaliskuu</div>
+      <div class="table-wrap">
+        <div class="table-label">Arkisin (ma–pe)</div>
+        <table class="price-table">
+          <thead><tr><th>Aika</th><th>Hinta</th><th>Huomio</th></tr></thead>
+          <tbody>
+            <tr><td class="time-col">00:00 – 07:00</td><td class="price-col price-low">10 €/h</td><td class="day-col">Yöaika — edullisin</td></tr>
+            <tr><td class="time-col">07:00 – 15:00</td><td class="price-col price-mid">18 €/h</td><td class="day-col">Päiväaika</td></tr>
+            <tr><td class="time-col">15:00 – 24:00</td><td class="price-col price-high">28 €/h</td><td class="day-col">Ruuhka-aika</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <div class="table-label">Viikonloppuisin (la–su)</div>
+        <table class="price-table">
+          <thead><tr><th>Aika</th><th>Hinta</th><th>Huomio</th></tr></thead>
+          <tbody>
+            <tr><td class="time-col">00:00 – 09:00</td><td class="price-col price-mid">18 €/h</td><td class="day-col">Aamu</td></tr>
+            <tr><td class="time-col">09:00 – 24:00</td><td class="price-col price-high">28 €/h</td><td class="day-col">Päivä & ilta</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- KEVÄT & SYKSY -->
+    <div class="season-panel" id="panel-kevat">
+      <div class="season-dates"><strong>Voimassa:</strong> Huhtikuu & Lokakuu</div>
+      <div class="table-wrap">
+        <div class="table-label">Arkisin (ma–pe)</div>
+        <table class="price-table">
+          <thead><tr><th>Aika</th><th>Hinta</th><th>Huomio</th></tr></thead>
+          <tbody>
+            <tr><td class="time-col">00:00 – 15:00</td><td class="price-col price-low">10 €/h</td><td class="day-col">Yö & päivä — edullisin</td></tr>
+            <tr><td class="time-col">15:00 – 24:00</td><td class="price-col price-mid">18 €/h</td><td class="day-col">Ilta-aika</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <div class="table-label">Viikonloppuisin (la–su)</div>
+        <table class="price-table">
+          <thead><tr><th>Aika</th><th>Hinta</th><th>Huomio</th></tr></thead>
+          <tbody>
+            <tr><td class="time-col">00:00 – 09:00</td><td class="price-col price-low">10 €/h</td><td class="day-col">Aamu — edullisin</td></tr>
+            <tr><td class="time-col">09:00 – 24:00</td><td class="price-col price-mid">18 €/h</td><td class="day-col">Päivä & ilta</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- KESÄ -->
+    <div class="season-panel" id="panel-kesa">
+      <div class="season-dates"><strong>Voimassa:</strong> Toukokuu — Syyskuu</div>
+      <div class="table-wrap">
+        <div class="table-label">Kaikki ajat (ma–su)</div>
+        <table class="price-table">
+          <thead><tr><th>Aika</th><th>Hinta</th><th>Huomio</th></tr></thead>
+          <tbody>
+            <tr><td class="time-col">00:00 – 24:00</td><td class="price-col price-low">10 €/h</td><td class="day-col">Kiinteä hinta ympäri vuorokauden</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px;">Kesällä kaikki ajat ovat samanhintaisia — pelaa milloin sopii.</p>
+    </div>
+
+    <p style="font-size:12px;color:var(--softer);margin-top:16px;">Kaikki hinnat sisältävät ALV 13,5 %. Hinnat voimassa molemmissa sijainneissa.</p>
+  </div>
+
+  
+  <!-- SARJAKORTIT -->
+  <div class="sarjakortit-section">
+    <p class="eyebrow">Sarjakortit</p>
+    <h2 style="font-family:var(--font-head);font-size:clamp(28px,4vw,42px);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Säästä sarjakortilla</h2>
+    <p style="font-size:15px;font-weight:300;color:var(--muted);max-width:600px;line-height:1.65;margin-bottom:32px;">Sarjakortilla maksat simulaattoriaikasi etukäteen edullisemmin. Kaikki kortit toimivat molemmissa sijainneissa ja ovat voimassa 12 kuukautta ostohetkestä. Sarjakortin osto on sitova — peruutusoikeutta ei ole.</p>
+
+    <!-- KAIKKI AJAT -->
+    <h3 style="font-family:var(--font-head);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:14px;">Kaikki ajankohdat</h3>
+    <p style="font-size:13px;font-weight:300;color:var(--muted);margin-bottom:16px;">Käytettävissä mihin aikaan tahansa. <strong style="color:var(--white);">Sopii ilta- ja viikonloppupelaajalle</strong> — optimaalinen valinta kun pelaat pääasiassa klo 15 jälkeen tai viikonloppuisin.</p>
+    <div class="sk-grid" style="margin-bottom:28px;">
+      <div class="sk-card">
+        <div class="sk-left"><h3>5 tunnin kortti</h3><p>Kaikki ajankohdat · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">125 €</div><div class="per">= 25 € / tunti</div></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-left"><h3>10 tunnin kortti</h3><p>Kaikki ajankohdat · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">240 €</div><div class="per">= 24 € / tunti</div></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-left"><h3>20 tunnin kortti</h3><p>Kaikki ajankohdat · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">440 €</div><div class="per">= 22 € / tunti</div></div>
+      </div>
+    </div>
+
+
+    <!-- ARKISIN 07–15 -->
+    <h3 style="font-family:var(--font-head);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:14px;">Arkisin 07:00–15:00</h3>
+    <p style="font-size:13px;font-weight:300;color:var(--muted);margin-bottom:16px;">Käytettävissä arkisin klo 07:00–15:00. <strong style="color:var(--white);">Sopii päiväpelaajalle</strong> — jos pelaat pääasiassa aamupäivisin arkisin, tämä on edullisin vaihtoehto.</p>
+    <div class="sk-grid" style="margin-bottom:28px;">
+      <div class="sk-card">
+        <div class="sk-left"><h3>5 tunnin kortti</h3><p>Arkisin 07:00–15:00 · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">85 €</div><div class="per">= 17 € / tunti</div><div class="save">Edullisin vaihtoehto</div></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-left"><h3>10 tunnin kortti</h3><p>Arkisin 07:00–15:00 · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">160 €</div><div class="per">= 16 € / tunti</div><div class="save">Edullisin vaihtoehto</div></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-left"><h3>20 tunnin kortti</h3><p>Arkisin 07:00–15:00 · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">300 €</div><div class="per">= 15 € / tunti</div><div class="save">Edullisin vaihtoehto</div></div>
+      </div>
+    </div>
+
+    <!-- GOLFOPETUS -->
+    <h3 style="font-family:var(--font-head);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:14px;">Golfopetuksen sarjakortit</h3>
+    <p style="font-size:13px;font-weight:300;color:var(--muted);margin-bottom:16px;">Sisältää valmentaja Joonas Elorannan opetuksen. Varaukset tehdään "Golfsimulaattori ja valmennus" -kalenterista.</p>
+    <div class="sk-grid" style="margin-bottom:28px;">
+      <div class="sk-card">
+        <div class="sk-left"><h3>3 opetustuntia</h3><p>Sis. valmennus · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">200 €</div><div class="per">= 67 € / tunti</div></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-left"><h3>5 opetustuntia</h3><p>Sis. valmennus · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">325 €</div><div class="per">= 65 € / tunti</div></div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-left"><h3>10 opetustuntia</h3><p>Sis. valmennus · voimassa 12 kk</p></div>
+        <div class="sk-price"><div class="big">600 €</div><div class="per">= 60 € / tunti</div></div>
+      </div>
+    </div>
+
+    <!-- EDUT + OSTA NAPPI -->
+    <div style="background:rgba(251,96,27,.07);border:1px solid rgba(251,96,27,.2);border-radius:8px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <p style="font-size:13px;font-weight:500;color:var(--white);margin-bottom:4px;">Liikuntaedut käytössä</p>
+        <p style="font-size:12px;color:var(--muted);">Sarjakortit voi ostaa liikuntaedulla: Epassi, Edenred, SmartumPay</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:12px;font-weight:600;background:rgba(251,96,27,.15);border:1px solid rgba(251,96,27,.3);border-radius:3px;padding:4px 10px;color:var(--orange);">Epassi</span>
+        <span style="font-size:12px;font-weight:600;background:rgba(251,96,27,.15);border:1px solid rgba(251,96,27,.3);border-radius:3px;padding:4px 10px;color:var(--orange);">Edenred</span>
+        <span style="font-size:12px;font-weight:600;background:rgba(251,96,27,.15);border:1px solid rgba(251,96,27,.3);border-radius:3px;padding:4px 10px;color:var(--orange);">SmartumPay</span>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--softer);margin-bottom:20px;">Sarjakortin osto on sitova — peruutusoikeutta ei ole, maksuja ei palauteta. Kaikki hinnat sisältävät ALV.</p>
+    <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php?page=kausikortti&id_event=5&enroll=6" target="_blank" class="btn-fill">Osta sarjakortti varauskalenterista →</a>
+  </div>
+
+  <!-- LIIKUNTAEDUT -->
+  <div class="edut-section">
+    <div class="edut-card">
+      <p class="eyebrow">Liikuntaedut</p>
+      <h2 style="font-size:clamp(24px,3vw,34px);margin-bottom:10px;">Maksa liikuntaedulla</h2>
+      <p>Voit maksaa simulaattoriajan työnantajan liikuntaedulla. Hyväksymme seuraavat liikuntaetu-palvelut — kysy työnantajaltasi onko sinulla etu käytössä.</p>
+      <div class="edut-pills">
+        <div class="edut-pill">Edenred</div>
+        <div class="edut-pill">Epassi</div>
+        <div class="edut-pill">Smartum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RYHMÄT -->
+  <div style="padding:0 var(--pad-x) clamp(40px,6vw,64px);">
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:clamp(24px,4vw,36px);display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;">
+      <div>
+        <p class="eyebrow">Ryhmät & yritykset</p>
+        <h2 style="font-size:clamp(24px,3vw,34px);margin-bottom:10px;">TYKY-päivä tai yritystapahtuma?</h2>
+        <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.65;max-width:480px;">ÄssäGolf sopii erinomaisesti TYKY-päiviin, syntymäjuhliin ja yritystapahtumiin. Räätälöidään sopiva paketti ryhmällenne.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
+        <a href="mailto:info@assagolf.fi" class="btn-fill">Kysy ryhmätarjous</a>
+        <a href="/yhteystiedot.html" class="btn-ghost">Yhteystiedot</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <p class="eyebrow">Usein kysyttyä</p>
+    <h2>Vastauksia<br>kysymyksiin</h2>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Kuinka kauan voi varata kerralla?<svg class="faq-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Voit varata niin pitkän ajan kun haluat. Viikonloppujen suosituimmat ajat kannattaa varata etukäteen.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Onko varauksessa peruutusoikeus?<svg class="faq-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Varaus on sitova — peruutusoikeutta ei ole.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Kuinka monta pelaajaa mahtuu kerralla?<svg class="faq-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Simulaattoritilaan mahtuu mukavasti 2–4 pelaajaa. Laite tukee useamman pelaajan vuorottelua saman session aikana. Isommille ryhmille suosittelemme pidempiä tai peräkkäisiä varauksia.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Mitä maksutapoja hyväksytään?<svg class="faq-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Hyväksymme yleiset pankki- ja luottokortit sekä liikuntaedut: Epassi, Edenred ja SmartumPay. Maksu tapahtuu varauksen yhteydessä verkossa.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Miten ovikoodi toimii?<svg class="faq-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Saat henkilökohtaisen numerokoodin sähköpostiisi automaattisesti heti varauksen jälkeen. Koodi aktivoituu 5 minuuttia ennen varauksen alkua ja lukittuu ajan päättyessä.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Toimiiko sarjakortti molemmissa sijainneissa?<svg class="faq-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a">Kyllä. Kaikki sarjakortit toimivat molemmissa sijainneissa — sekä Kalajärvellä että Gumbölessä.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h2>Varaa aika<br>tästä</h2>
+    <div class="cta-btns">
+      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="btn-wh">Varaa simulaattoriaika</a>
+      <a href="/sijainnit.html" class="btn-gh-cta">Katso sijainnit</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="logo">Ässä<span>Golf</span></a>
+      <p>Suomen laadukkain golfsimulaattoriharjoittelukeskus. Ässä Golf Oy — Espoo.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Keskukset</h4>
+      <a href="/sijainnit.html">Kalajärvi, Espoo</a>
+      <a href="/sijainnit.html">Gumböle, Espoo</a>
+      <a href="/sijainnit.html#ohjeet">Ohjeet &amp; säännöt</a>
+      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="hl">Varaa vuoro →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Verkkokauppa</h4>
+      <a href="https://assakauppa.fi" target="_blank">Kaikki tuotteet</a>
+      <a href="https://assakauppa.fi/simulaattorit" target="_blank">Simulaattorit</a>
+      <a href="https://assakauppa.fi/valkokankaat" target="_blank">Valkokankaat</a>
+      <a href="https://assakauppa.fi/matot" target="_blank">Matot</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yritys</h4>
+      <a href="/valmennus.html">Valmennus</a>
+      <a href="/artikkelit.html">Artikkelit</a>
+      <a href="/yhteystiedot.html">Yhteystiedot</a>
+      <a href="mailto:info@assagolf.fi">info@assagolf.fi</a>
+      <a href="tel:0444910883">044 4910 883</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ässä Golf Oy</p>
+    <div class="footer-links">
+      <a href="/tietosuojaseloste.html">Tietosuoja</a>
+      <a href="/toimitusehdot.html">Toimitusehdot</a>
+    </div>
+  </div>
+</footer>
+<script>
+const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
+h.addEventListener('click',()=>m.classList.toggle('open'));
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target))m.classList.remove('open');});
+</script>
+</body>
+</html>

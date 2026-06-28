@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artikkelit & Vinkit — Golfsimulaattori, harjoittelu ja tarvikkeet | ÄssäGolf</title>
+<meta name="description" content="Kattavat oppaat golfsimulaattoriharjoitteluun, kotisimulaattorin rakentamiseen ja laitevalintoihin. Trackman 4, ProTee VX ja Foresight vertailussa. ÄssäGolf asiantuntijoiden vinkit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--orange:#fb601b;--orange-dim:#d94e12;--bg:#111;--bg-card:#191919;--bg-lift:#212121;--border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);--white:#f0efed;--muted:rgba(240,239,237,0.5);--softer:rgba(240,239,237,0.28);--font-head:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;--pad-x:clamp(20px,5vw,56px);--header-h:60px;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad-x);background:rgba(17,17,17,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.logo{font-family:var(--font-head);font-weight:700;font-size:clamp(18px,3vw,22px);letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
+.logo span{color:var(--orange);}
+nav{display:flex;align-items:center;gap:2px;}
+nav a{font-size:13px;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .18s,background .18s;white-space:nowrap;}
+nav a:hover{color:var(--white);background:rgba(255,255,255,0.05);}
+nav a.active{color:var(--orange);}
+.nav-shop{color:var(--orange)!important;border:1px solid rgba(251,96,27,0.3);}
+.nav-shop:hover{background:rgba(251,96,27,0.07)!important;}
+.nav-cta{background:var(--orange)!important;color:#fff!important;font-weight:500!important;padding:7px 16px!important;}
+.nav-cta:hover{background:var(--orange-dim)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;top:var(--header-h);left:0;right:0;z-index:99;background:rgba(14,14,14,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px var(--pad-x) 20px;flex-direction:column;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:15px;color:var(--muted);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;margin-top:8px;}
+.mobile-menu .m-shop{color:var(--orange)!important;}
+.mobile-menu .m-cta{background:var(--orange);color:#fff!important;text-align:center;border-radius:4px;padding:13px 20px;font-weight:500;border-bottom:none;}
+.page{padding-top:var(--header-h);}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.btn-fill{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--font-body);font-weight:500;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;transition:background .18s;white-space:nowrap;}
+.btn-fill:hover{background:var(--orange-dim);}
+
+/* PAGE HERO */
+.page-hero{padding:clamp(40px,6vw,56px) var(--pad-x) clamp(32px,5vw,48px);background:var(--bg-card);border-bottom:1px solid var(--border);}
+.page-hero h1{font-size:clamp(46px,7vw,80px);line-height:.92;margin-bottom:16px;}
+.page-hero p{font-size:16px;font-weight:300;color:var(--muted);max-width:520px;line-height:1.65;}
+
+/* FILTER BAR */
+.filter-bar{padding:20px var(--pad-x);border-bottom:1px solid var(--border);background:var(--bg-card);display:flex;gap:8px;flex-wrap:wrap;}
+.filter-btn{font-size:12px;font-weight:500;padding:6px 16px;border-radius:99px;border:1px solid var(--border-mid);background:transparent;color:var(--muted);cursor:pointer;transition:all .18s;}
+.filter-btn.active{background:var(--orange);color:#fff;border-color:var(--orange);}
+.filter-btn:hover:not(.active){background:var(--bg-lift);color:var(--white);border-color:var(--border-mid);}
+
+/* ARTICLES */
+.articles-section{padding:clamp(36px,5vw,56px) var(--pad-x);}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:clamp(36px,5vw,56px);}
+
+.article-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:border-color .2s,transform .2s;}
+.article-card:hover{border-color:rgba(251,96,27,.3);transform:translateY(-3px);}
+.article-card[style*="display: none"]{display:none!important;}
+
+.article-thumb{height:130px;background:var(--bg-lift);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.article-thumb::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 80%,rgba(251,96,27,.08) 0%,transparent 60%);}
+.thumb-icon{position:relative;z-index:1;width:42px;height:42px;border-radius:8px;background:rgba(251,96,27,.12);display:flex;align-items:center;justify-content:center;}
+.thumb-icon svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:1.5;}
+.article-body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1;}
+.art-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;}
+.art-cat{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);}
+.art-time{font-size:11px;color:var(--softer);}
+.article-body h3{font-size:clamp(15px,2vw,17px);line-height:1.05;margin-bottom:7px;color:var(--white);}
+.article-body p{font-size:12px;font-weight:300;color:var(--muted);line-height:1.55;flex:1;}
+.art-link{font-size:12px;font-weight:500;color:var(--orange);margin-top:12px;display:inline-flex;align-items:center;gap:4px;}
+
+/* FULL ARTICLES */
+.full-articles{padding:0 var(--pad-x) clamp(48px,7vw,80px);}
+.full-article{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:clamp(28px,4vw,44px);margin-bottom:16px;}
+.full-article[style*="display: none"]{display:none!important;}
+.art-cat-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+.full-article h2{font-size:clamp(22px,3vw,34px);line-height:1;margin-bottom:6px;}
+.fa-meta{display:flex;gap:14px;align-items:center;margin-bottom:22px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:16px;}
+.fa-date,.fa-read{font-size:12px;color:var(--softer);}
+.fa-body h3{font-size:clamp(17px,2vw,21px);margin:22px 0 9px;}
+.fa-body p{font-size:14px;font-weight:300;color:var(--muted);line-height:1.78;margin-bottom:13px;}
+.fa-body ul,.fa-body ol{padding-left:1.3rem;margin-bottom:13px;}
+.fa-body li{font-size:14px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:5px;}
+.fa-body strong{color:var(--white);font-weight:500;}
+.fa-body a{color:var(--orange);text-decoration:none;}
+.fa-body a:hover{text-decoration:underline;}
+
+/* Product CTA inside article */
+.art-cta{background:var(--bg-lift);border:1px solid rgba(251,96,27,.2);border-radius:7px;padding:14px 18px;margin:18px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.art-cta p{font-size:13px;color:var(--muted);margin:0;}
+.art-cta p strong{color:var(--white);}
+.art-btn-sm{font-size:12px;font-weight:600;background:var(--orange);color:#fff;padding:8px 16px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:background .18s;}
+.art-btn-sm:hover{background:var(--orange-dim);}
+
+/* CTA BAND */
+.cta-band{background:var(--orange);padding:clamp(48px,7vw,72px) var(--pad-x);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden;}
+.cta-band::before{content:'ÄSSA';position:absolute;right:-20px;top:-30px;font-family:var(--font-head);font-weight:700;font-size:clamp(100px,25vw,280px);color:rgba(0,0,0,0.08);letter-spacing:-5px;user-select:none;pointer-events:none;}
+.cta-band h2{font-size:clamp(32px,5vw,54px);color:#fff;line-height:.93;position:relative;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;}
+.btn-wh{background:#fff;color:var(--orange);font-family:var(--font-body);font-weight:600;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .18s;white-space:nowrap;}
+.btn-wh:hover{background:rgba(255,255,255,.9);}
+.btn-gh-cta{border:1px solid rgba(255,255,255,.4);color:#fff;font-size:14px;padding:12px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}
+.btn-gh-cta:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+
+/* FOOTER */
+footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,6vw,56px) var(--pad-x) clamp(24px,3vw,32px);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,4vw,40px);margin-bottom:clamp(24px,4vw,40px);padding-bottom:clamp(24px,4vw,40px);border-bottom:1px solid var(--border);}
+.footer-brand p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65;max-width:240px;margin-top:12px;}
+.footer-col h4{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--softer);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;font-weight:300;color:var(--muted);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:var(--white);}
+.footer-col a.hl{color:var(--orange);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:var(--softer);}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;color:var(--softer);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:var(--muted);}
+
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:860px){.hamburger{display:flex;}nav a:not(.nav-cta):not(.nav-shop){display:none;}.articles-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:640px){nav a:not(.nav-cta){display:none;}.articles-grid{grid-template-columns:1fr;}.cta-band{flex-direction:column;align-items:flex-start;}.cta-btns{width:100%;}.btn-wh,.btn-gh-cta{flex:1;justify-content:center;}.footer-top{grid-template-columns:1fr;}}
+@media(max-width:420px){.nav-shop{display:none;}}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Ässä<span>Golf</span></a>
+  <nav>
+    <a href="/">Etusivu</a>
+    <a href="/sijainnit.html">Sijainnit</a>
+    <a href="/hinnasto.html">Hinnasto</a>
+    <a href="/valmennus.html">Valmennus</a>
+    <a href="/artikkelit.html" class="active">Artikkelit</a>
+    <a href="https://assakauppa.fi" class="nav-shop" target="_blank">Kauppa</a>
+    <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="nav-cta">Varaa vuoro</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/">Etusivu</a>
+  <a href="/sijainnit.html">Sijainnit</a>
+  <a href="/hinnasto.html">Hinnasto</a>
+  <a href="/valmennus.html">Valmennus</a>
+  <a href="/artikkelit.html">Artikkelit</a>
+  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
+  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
+</nav>
+  <button class="hamburger" id="hamburger" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/">Etusivu</a><a href="/sijainnit.html">Sijainnit</a><a href="/hinnasto.html">Hinnasto</a><a href="/artikkelit.html">Artikkelit</a>
+  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
+  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
+</nav>
+
+<div class="page">
+  <div class="page-hero">
+    <p class="eyebrow">Oppaat & Vinkit</p>
+    <h1>Kaikki mitä<br>golfarin täytyy<br>tietää</h1>
+    <p>Asiantuntijasisältöä simulaattoriharjoittelusta, kotisimulaattorin rakentamisesta ja laitevalinnoista. Golfarilta golfarille.</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-cat="kaikki">Kaikki</button>
+    <button class="filter-btn" data-cat="harjoittelu">Simulaattoriharjoittelu</button>
+    <button class="filter-btn" data-cat="kotisimulaattori">Kotisimulaattori</button>
+    <button class="filter-btn" data-cat="laitteet">Laitteet & tarvikkeet</button>
+    <button class="filter-btn" data-cat="espoo">Espoo</button>
+    <button class="filter-btn" data-cat="harjoittelu">Harjoittelu & sarjakortit</button>
+  </div>
+
+  <div class="articles-section">
+    <div class="articles-grid">
+
+      <a href="#kotisimulaattori-opas" class="article-card" data-cat="kotisimulaattori">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Kotisimulaattori</span><span class="art-time">12 min</span></div>
+          <h3>Golfsimulaattorin rakentaminen — täydellinen opas 2026</h3>
+          <p>Tilavaatimukset, laitevalinta, valkokangas ja realistinen budjetti. Kaikki mitä tarvitset oman simulaattorin rakentamiseen.</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+
+      <a href="#trackman-vs-protee" class="article-card" data-cat="laitteet">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Laitteet</span><span class="art-time">8 min</span></div>
+          <h3>Trackman 4 vs ProTee VX vs Foresight GC3</h3>
+          <p>Kolme suosituinta simulaattoria vertailussa. Mikä sopii kotikäyttöön, mikä kaupalliseen tilaan?</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+
+      <a href="#simulaattori-hyodyt" class="article-card" data-cat="harjoittelu">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Harjoittelu</span><span class="art-time">6 min</span></div>
+          <h3>Miksi simulaattoriharjoittelu kehittää nopeammin kuin rangella käynti?</h3>
+          <p>Data osoittaa: välitön palaute ja jatkuva toisto tekevät simulaattorista tehokkaamman harjoitteluvälineen.</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+
+      <a href="#impact-screen" class="article-card" data-cat="laitteet">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Tarvikkeet</span><span class="art-time">5 min</span></div>
+          <h3>Kuinka valita oikea valkokangas golfsimulaattoriin?</h3>
+          <p>Koko, materiaali ja kiinnitys — kaikki mitä täytyy tietää, ennen kuin ostat valkokankaan.</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+
+      <a href="#harjoitteluohjelma" class="article-card" data-cat="harjoittelu">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Harjoittelu</span><span class="art-time">7 min</span></div>
+          <h3>12 viikon harjoitteluohjelma simulaattorilla</h3>
+          <p>Rakenteellinen ohjelma tasoituksen pudottamiseen — aloittelijasta kokeneemmalle golfarille.</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+
+      <a href="#golf-espoo" class="article-card" data-cat="espoo">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Espoo</span><span class="art-time">3 min</span></div>
+          <h3>Missä voi pelata golfia sisällä Espoossa?</h3>
+          <p>Talvi tai sateinen päivä ei pysäytä golfaria — Espoossa on kaksi laadukasta golfimulaattorikeskusta.</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+
+    
+      <a href="#sarjakortit" class="article-card" data-cat="harjoittelu">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Sarjakortit</span><span class="art-time">4 min</span></div>
+          <h3>Sarjakortti — kannattaako se ja milloin se maksaa itsensä takaisin?</h3>
+          <p>Lasku on yksinkertainen. Jos käyt simulaattorilla useammin kuin kerran kuussa, sarjakortti säästää rahaa joka kerta.</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+
+      <a href="#valmennus-artikkeli" class="article-card" data-cat="harjoittelu">
+        <div class="article-thumb"><div class="thumb-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div>
+        <div class="article-body">
+          <div class="art-meta"><span class="art-cat">Valmennus</span><span class="art-time">5 min</span></div>
+          <h3>Kannattaako golfvalmennus simulaattorilla — mitä saa tunnin aikana?</h3>
+          <p>Trackman 4 ei valehtele. Yksi valmennustunti datan kanssa kertoo enemmän kuin kymmenen tuntia ilman analyysiä.</p>
+          <span class="art-link">Lue artikkeli →</span>
+        </div>
+      </a>
+    </div><!-- /articles-grid -->
+
+    <!-- FULL ARTICLES -->
+    <div class="full-articles" id="full-articles-wrap">
+
+      <!-- ARTIKKELI 1 -->
+      <div class="full-article" id="kotisimulaattori-opas" data-cat="kotisimulaattori">
+        <div class="art-cat-label">Golfsimulaattori</div>
+        <h2>Golfsimulaattorin rakentaminen — täydellinen opas 2026</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2026</span>
+          <span class="fa-read">Lukuaika: 12 min</span>
+        </div>
+        <div class="fa-body">
+          <p>Oma golfsimulaattori on monelle haave ja yhä useammalle se on myös totta. Hinnat ovat laskeneet viime vuosina merkittävästi, ja oikein rakennettuna golfsimulaattori tarjoaa ympärivuotisen harjoittelumahdollisuuden.</p>
+          <p>Tässä oppaassa käymme läpi kaiken tarvittavan: tilan vaatimukset, laitevalinnat, valkokankaan, maton ja realistisen budjetin.</p>
+
+          <h3>Mitä tila vaatii?</h3>
+          <p>Yleisin kysymys on yksinkertainen: mahtuuko simulaattori tilaan? Vastaus on useimmiten kyllä, riittää tavallinen autotalli, iso kellari tai vastaava tila. Minimivaatimukset ovat seuraavat:</p>
+          <ul>
+            <li><strong>Leveys:</strong> vähintään 4 metriä, mieluiten 5-6 metriä</li>
+            <li><strong>Syvyys:</strong> vähintään 5 metriä lyöjästä kankaaseen, mieluiten 6-7 metriä</li>
+            <li><strong>Korkeus:</strong> vähintään 2,8 metriä, mieluiten 3,0 metriä</li>
+          </ul>
+          <h3>Laitevalinta: tutka, kamera vai kattolaite?</h3>
+          <p>Simulaattorilaitteen valinta on tärkein yksittäinen päätös. Kolme suosituinta vaihtoehtoa Suomessa ovat:</p>
+          <ul>
+            <li><strong>Foresight GC3</strong> — lattialle sijoitettava kamerapohjainen laite. Kompakti, tarkka ja edullisempi kuin Trackman. Hinta noin 5 000–9 000 €. Hyvä valinta useimmille kotikäyttäjille.</li>
+            <li><strong>ProTee VX</strong> — kattoon kiinnitettävä tekoälysimulaattori. Ei lattia-antureita, ei erityispalloja. Tilaa säästävä ratkaisu, jossa lyönti analysoidaan kahdella hidastuskameralla. Hinta noin 8200 €.</li>
+            <li><strong>Trackman 4 & iO</strong> — markkinoiden referenssilaite, joka käyttää kaksoistutkausta. Hinta noin 22 000–25 000 €.</li>
+          </ul>
+
+          <div class="art-cta">
+            <p><strong>Trackman, Foresight GC3 ja ProTee VX -laitteet</strong> löydät ÄssäGolfin verkkokaupasta. Toimitamme koko Suomeen.</p>
+            <a href="https://assakauppa.fi/simulaattorit" target="_blank" class="art-btn-sm">Katso simulaattorit →</a>
+          </div>
+
+          <h3>Impact screen — valkokangas johon lyöt</h3>
+          <p>Impact screen on iso valkokangas, johon pallot osuvat ja jolle projektori heijastaa kuvan. Hyvässä kankaassa on useita kerroksia erikoiskankaasta, joka kestää erittäin paljon lyöntejä. Koko valitaan tilan mukaan, tyypillisiä kokoja ovat 2,7 x 3,6 metriä & 4 x 3 metriä & 5 x 3 metriä. Löytyy myös reilusti muita kokoja tilanne vaatimiin ratkaisuihin.</p>
+
+          <div class="art-cta">
+            <p><strong>Impact screenit kaiken kokoisiin tiloihin</strong> — tilaa oikea koko verkkokaupastamme.</p>
+            <a href="https://assakauppa.fi/valkokankaat" target="_blank" class="art-btn-sm">Katso valkokankaat →</a>
+          </div>
+
+          <h3>Realistinen kokonaiskustannus</h3>
+          <ul>
+            <li><strong>Edullinen paketti</strong> (Foresight GC3 + perusscreen + matto): noin 8 000–12 000 €</li>
+            <li><strong>Keskiluokka</strong> (ProTee VX + laadukas screen + hyvä matto + projektor): noin 12 000–18 000 €</li>
+            <li><strong>Premium</strong> (Trackman 4/iO tai GCQuad + kaikki lisät): 30 000–55 000 €</li>
+          </ul>
+          <p>ÄssäGolf tarjoaa myös suunnittelu- ja asennuspalvelua. <a href="/yhteystiedot.html">Ota yhteyttä</a>, niin katsotaan yhdessä mikä ratkaisu sopii tilallesi ja budjetillesi.</p>
+        </div>
+      </div>
+
+      <!-- ARTIKKELI 2 -->
+      <div class="full-article" id="trackman-vs-protee" data-cat="laitteet">
+        <div class="art-cat-label">Laitteet & vertailu</div>
+        <h2>Trackman 4/iO vs ProTee VX vs Foresight GC3 — kumpi simulaattori sopii sinulle?</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2026</span>
+          <span class="fa-read">Lukuaika: 8 min</span>
+        </div>
+        <div class="fa-body">
+          <p>Markkinoilla on paljon eri simulaattorivaihtoehtoja, ja laitteet eroavat toisistaan sekä teknologialtaan että käyttötarkoitukseltaan. Käymme tässä läpi kolme Suomessa eniten käytettyä laitetta.</p>
+
+          <h3>Trackman 4/iO — tutkapohjainen ammattilaistason laite</h3>
+          <p>Trackman 4/iO mittaa pallon lentorataa kaksoistutkauksella koko lennon ajan. Se on golfin mittausteknologian vertailukohta, jota käytetään ammattilaisturnauksissa ympäri maailman. Tarkkuus on poikkeuksellinen erityisesti pitkillä lyönneillä.</p>
+          <p><strong>Sopii:</strong> kaupallisille simulaattorikeskuksille ja vaativimmille kotikäyttäjille, joille budjetti ei ole ensisijainen rajoite. Hinta noin 22 000–25 000 €.</p>
+
+          <h3>ProTee VX — Kamerapohjainen simulaattorilaite</h3>
+          <p>ProTee VX kiinnitetään kattoon ja käyttää kahta nopeakameraa sekä tekoälyä pallon ja mailan seurantaan. Iso etu on se, ettei tarvita lattia-antureita eikä erityismerkittyjä palloja tai mailan tarroja. Laite lukee lyönnit alle 0,3 sekuntia osumasta.</p>
+          <p>Laite sopii erityisesti tiloihin, joissa halutaan säästää lattiatilaa, tai kun tilaan tarvitaan tukea myös vasenkätisille pelaajille ilman uudelleenkalibrointia. Hinta noin 8000 €. Käytössä ÄssäGolfin Gumbölen keskuksessa.</p>
+
+          <h3>Foresight GC3 — kannettava kamerapohjainen laite</h3>
+          <p>Foresight GC3 asetetaan lattialle ja se käyttää kolmea kameraa lyöntidatan tallentamiseen. Laite on kevyt ja helppo siirtää — toimii yhtä hyvin ulkona kuin sisällä.</p>
+          <p>GC3 on monelle kotisimulaattorirakentajalle paras valinta: ammattimainen tarkkuus selvästi edullisemmalla hinnalla kuin Trackman.</p>
+
+          <h3>Yhteenveto</h3>
+          <ul>
+            <li><strong>Kotisimulaattori, tiivis tila:</strong> ProTee VX — kattoasennus vapauttaa lattiatilan</li>
+            <li><strong>Kotisimulaattori, hinta-laatu:</strong> Foresight GC3 — erinomainen tarkkuus järkevällä hinnalla</li>
+            <li><strong>Kaupallinen tai premium-kotikäyttö:</strong> Trackman 4/iO — markkinoiden parasta tarkkuutta</li>
+          </ul>
+          <p>Haluatko kokeilla laitteita ennen ostopäätöstä? <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank">Varaa aika</a> — Kalajärvellä on Trackman 4 ja Gumbölessä ProTee VX.</p>
+
+          <div class="art-cta">
+            <p><strong>Trackman, Foresight ja ProTee VX laitteet</strong> löydät verkkokaupastamme.</p>
+            <a href="https://assakauppa.fi/simulaattorit" target="_blank" class="art-btn-sm">Katso simulaattorit →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTIKKELI 3 -->
+      <div class="full-article" id="simulaattori-hyodyt" data-cat="harjoittelu">
+        <div class="art-cat-label">Simulaattoriharjoittelu</div>
+        <h2>Miksi simulaattoriharjoittelu kehittää nopeammin kuin pelkkä rangella käynti?</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2026</span>
+          <span class="fa-read">Lukuaika: 6 min</span>
+        </div>
+        <div class="fa-body">
+          <p>Monet golfarit pitävät simulaattoria lähinnä talviajan viihtymisvälineenä. Todellisuudessa simulaattoriharjoittelu voi kehittää lyöntiä nopeammin kuin perinteinen rangella käynti ja tässä on syyt miksi.</p>
+
+          <h3>Välitön palaute muuttaa oppimistavan</h3>
+          <p>Simulaattori mittaa jokaisen lyönnin tarkasti ja näyttää tuloksen sekunneissa: pallonopeus, lähtökulma, sidespin, backspin, lentoetäisyys jne. Rangella näet vain pallon lentoradan, et tiedä miksi se meni sinne minne meni.</p>
+          <p>Kun tiedät tarkalleen mitä tapahtui, voit korjata juuri sen yhden asian. Tämä tekee harjoittelusta huomattavasti tehokkaampaa.</p>
+
+          <h3>Harjoittelua 12 kuukautta vuodessa</h3>
+          <p>Suomessa golfkausi ulkona kestää noin puoli vuotta. Simulaattorilla harjoittelet ympäri vuoden, talvella pidät tekniikan terävänä ja kehität sitä, kesällä siirrät opitun kentälle. Tasaisesti harjoittelevat golfarit kehittyvät selvästi nopeammin kuin ne, jotka pitävät pitkiä talvitaukoja.</p>
+
+          <h3>Enemmän toistoja saman ajan sisällä</h3>
+          <p>Tunnin simulaattoriharjoittelussa lyöt tyypillisesti 60-100 palloa täydellä swingillä. Rangella sama aika kuluu osin pallonkeräilyyn, taukoihin ja muihin keskeytyksiin. Simulaattori maksimoi harjoitustoistot.</p>
+
+          <h3>Paineen alla harjoittelu</h3>
+          <p>Kun pelaat simulaattorikierrosta, voit päättää olla ottamatta uusintalyöntejä. Jokainen lyönti lasketaan täsmälleen kuten oikealla kentällä. Tämä kehittää kykyä suoriutua paineen alla, mikä on taito jonka oppii vain harjoittelemalla samanlaisessa tilanteessa ja se auttaa kentällä pelaamiseen.</p>
+
+          <div class="art-cta">
+            <p><strong>Haluatko kokeilla?</strong> Varaa tunti ÄssäGolfin simulaattorikeskukseen Espoossa.</p>
+            <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="art-btn-sm">Varaa aika →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTIKKELI 4 -->
+      <div class="full-article" id="impact-screen" data-cat="laitteet">
+        <div class="art-cat-label">Tarvikkeet</div>
+        <h2>Kuinka valita oikea impact screen kotisimulaattoriin?</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2026</span>
+          <span class="fa-read">Lukuaika: 5 min</span>
+        </div>
+        <div class="fa-body">
+          <p>Golf simulaattorin valkokangas (impact screen) on yksi tärkeimmistä ja helpoimmin aliarvioiduista simulaattorin tarvikkeista. Väärä valinta tarkoittaa reikiä kankaaseen muutaman kuukauden käytön jälkeen tai heikkoa kuvanlaatua.</p>
+
+          <h3>Materiaalin merkitys</h3>
+          <p>Laadukas impact screen koostuu yleensä 2–3 kerroksesta erikoiskankaasta. Uloin kerros kestää pallon iskut, välikerros vaimentaa energiaa ja sisin kerros heijastaa projektorin kuvan kirkkaana. Halvat yksikankaiset valkokankaat kuluvat nopeasti.</p>
+
+          <h3>Oikea koko tilallesi</h3>
+          <p>Kankaan täytyy peittää koko lyöntisektori ja pallon on aina osuttava kankaaseen, ei seinään. Suositellut mitat tilan leveyden mukaan:</p>
+          <ul>
+            <li><strong>Kapea tila (alle 4 m):</strong> 3,6 × 2,7 m tai 2,4 × 3,0 m</li>
+            <li><strong>Normaali tila (4–5 m):</strong> 3,6 × 2,7 m tai 4,0 × 3,0 m</li>
+            <li><strong>Tilava (yli 5 m):</strong> 5,0 × 3,0 m</li>
+          </ul>
+          <p>Muista jättää liikkumavaraa kankaan reunoille, kangas kiristetään kehykseen ja tarvitsee hieman ylimääräistä tilaa.</p>
+
+          <h3>Kiinnitystapa</h3>
+          <p>Kangas kiinnitetään joko teräsputkirunkoon, seinäkiinnikkeisiin tai omavalmisteiseen kehikkoon. Putkirunko on helpompi siirtää, kun omavalmisteinen kehikko tai seinäkiinnitys sopii pysyviin asennuksiin. Molemmissa tapauksissa kankaan on oltava sopivan kireällä, löysä kangas heiluu ja heikentää kuvanlaatua.</p>
+
+          <div class="art-cta">
+            <p><strong>Impact screenit eri koissa</strong> saatavilla ÄssäGolfin verkkokaupasta. Neuvomme oikean koon valinnassa.</p>
+            <a href="https://assakauppa.fi/valkokankaat" target="_blank" class="art-btn-sm">Katso valkokankaat →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTIKKELI 5 -->
+      <div class="full-article" id="harjoitteluohjelma" data-cat="harjoittelu">
+        <div class="art-cat-label">Harjoittelu</div>
+        <h2>12 viikon harjoitteluohjelma simulaattorilla</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2026</span>
+          <span class="fa-read">Lukuaika: 7 min</span>
+        </div>
+        <div class="fa-body">
+          <p>Satunnainen harjoittelu tuottaa satunnaisia tuloksia. Jos haluat pudottaa tasoitustasi talvikauden aikana, tarvitset toistuvan rakenteen. Tämä 12 viikon ohjelma on suunniteltu simulaattorikäyttöön.</p>
+
+          <h3>Perusperiaate: vaihtele, älä toista</h3>
+          <p>Yleisin virhe on lyödä satoja palloja samalla mailalla yksitoikkoisesti. Kehittyminen vaatii vaihtelua: eri mailoja, eri lyöntitilanteita, eri etäisyyksiä. Simulaattori on tähän erinomainen, koska voit asettaa täsmälleen sen tilanteen jonka haluat harjoitella.</p>
+
+          <h3>Viikot 1–4: perustekniikan rakentaminen</h3>
+          <ul>
+            <li>Kaksi 60 minuutin sessiota viikossa</li>
+            <li>40 % ajasta lyöntimatolla lyhyillä raudoilla (9-rauta, 8-rauta)</li>
+            <li>30 % ajasta puttaamiseen</li>
+            <li>30 % peli-simulaatioon, pelaa kokonaisia kenttiä</li>
+          </ul>
+
+          <h3>Viikot 5–8: yksityiskohtien hiominen</h3>
+          <ul>
+            <li>Lisää pitkät raudat ja puut mukaan harjoitteluun</li>
+            <li>Käytä simulaattorin data-analytiikkaa: tarkastele launch anglea, spin ratea ja clubpathia</li>
+            <li>Harjoittele tietoisesti yksi muuttuja kerrallaan, älä yritä korjata kaikkea yhdellä kerralla</li>
+          </ul>
+
+          <h3>Viikot 9–12: paineen alla pelaaminen</h3>
+          <ul>
+            <li>Pelaa kokonaisia kierroksia simulaattorilla ja pidä kirjaa tuloksista</li>
+            <li>Aseta itsellesi tavoite jokaiselle kierrokselle</li>
+            <li>Analysoi missä tilanteissa tehdään eniten virheitä ja harjoittele juuri niitä</li>
+          </ul>
+
+          <div class="art-cta">
+            <p><strong>Tarvitsetko harjoitteluaikaa?</strong> Varaa simulaattoriaika Espoossa — Kalajärvi tai Gumböle.</p>
+            <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="art-btn-sm">Varaa aika →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTIKKELI 6 -->
+      <div class="full-article" id="golf-espoo" data-cat="espoo">
+        <div class="art-cat-label">Espoo</div>
+        <h2>Missä voi pelata golfia sisällä Espoossa?</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2026</span>
+          <span class="fa-read">Lukuaika: 3 min</span>
+        </div>
+        <div class="fa-body">
+          <p>Espoo on Suomen golftiheimpiä alueita, täällä on useita hyviä golfkenttiä. Mutta entä kun sataa tai on talvi ja haluat silti harjoitella? Sisäharjoitteluun löytyy kaksi laadukasta vaihtoehtoa.</p>
+
+          <h3>ÄssäGolf Kalajärvi — Trackman 4</h3>
+          <p>Kalajärven simulaattorikeskus sijaitsee osoitteessa Alaniementie 2, 02970 Espoo. Käytössä on Trackman 4, iso valkokangas, kallistussäädettävä puttialusta ja lounge-alue. Tila on täysin miehittämätön: varaat ajan verkosta, saat ovikoodin sähköpostiin ja tila on käytössäsi koko varatun ajan.</p>
+
+          <h3>ÄssäGolf Gumböle — ProTee VX</h3>
+          <p>Gumbölen uusi simulaattorikeskus avattiin 2025 osoitteessa Pikkukouluntie 4, 02770 Espoo. Käytössä on ProTee VX -kattosimulaattori kamerateknologialla, joka seuraa pallon ja mailan liikettä tarkasti ilman erityispalloja tai mailan tarroja. Sijainti on hyvä Espoon länsi- ja pohjoisosista sekä Kirkkonummen suunnalta.</p>
+
+          <h3>Hinnat ja varaaminen</h3>
+          <p>Hinnat alkavat 10 €/h hiljaisina aikoina. Varaus tehdään verkossa, maksu kortilla tai liikuntaedulla (Edenred, Epassi, Smartum). Molemmat tilat ovat avoinna 24 tuntia vuorokaudessa, seitsemänä päivänä viikossa, ympäri vuoden.</p>
+
+          <div class="art-cta">
+            <p><strong>Varaa simulaattoriaika Espoossa</strong> — Kalajärvi tai Gumböle, kumpi sopii paremmin?</p>
+            <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="art-btn-sm">Varaa aika →</a>
+          </div>
+        </div>
+      </div>
+
+    
+            <!-- SARJAKORTIT -->
+      <div class="full-article" id="sarjakortit" data-cat="harjoittelu">
+        <div class="art-cat-label">Sarjakortit</div>
+        <h2>Sarjakortti — kannattaako se ja milloin se maksaa itsensä takaisin?</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2025</span>
+          <span class="fa-read">Lukuaika: 4 min</span>
+        </div>
+        <div class="fa-body">
+          <p>ÄssäGolfin sarjakortit ovat huomattavasti monipuolisemmat kuin monet osaavat odottaa. Kolme erilaista aikaikkunaa, kolme kokoa ja lisäksi valmennusta sisältävät sarjakortit — käydään kaikki vaihtoehdot läpi.</p>
+
+          <h3>Kolme aikaikkunaa — valitse tarpeesi mukaan</h3>
+          <p>Sarjakortit on jaettu kolmeen kategoriaan ajankohdan mukaan:</p>
+          <ul>
+            <li><strong>Kaikki ajat</strong> — sopii ilta- ja viikonloppupelaajalle. Käytä milloin tahansa. 5h=125€, 10h=240€, 20h=440€</li>
+            <li><strong>Arkisin 07:00–15:00</strong> — sopii päiväpelaajalle. Edullisin vaihtoehto aamupäivisin pelaavalle. 5h=85€, 10h=160€, 20h=300€</li>
+          </ul>
+          <p>Jos pelaat pääasiassa päivällä arkisin — töistä kotiin ajoissa tai olet eläkkeellä — <strong>07:00–15:00 -sarjakortti on selvästi edullisin</strong>. 10 tunnin kortilla hinta on vain 16 €/tunti, mikä on noin puolet talven arki-iltahinnasta.</p>
+          <p>Jos taas pelaat iltaisin tai viikonloppuisin, "kaikki ajat" -kortti antaa eniten vapautta.</p>
+
+          <h3>Milloin sarjakortti kannattaa?</h3>
+          <p>Sarjakortti maksaa itsensä takaisin kun käyt simulaattorilla enemmän kuin satunnaisesti. Konkreettinen esimerkki talvikaudelta:</p>
+          <ul>
+            <li>Arkisin klo 15–24 yksittäinen varaus maksaa 28 €/tunti</li>
+            <li>10 tunnin "kaikki ajat" -sarjakortilla hinta on 24 €/tunti</li>
+            <li>10 tunnin "07–15" -sarjakortilla vain 16 €/tunti</li>
+          </ul>
+          <p>Kaikki kortit ovat voimassa <strong>12 kuukautta ostohetkestä</strong> — ei tarvitse huolehtia siitä, ehtiikö kortit käyttää ennen kauden päättymistä.</p>
+
+          <h3>Golfopetuksen sarjakortit</h3>
+          <p>Valmennusta sisältävät sarjakortit ovat erillinen kategoria: 3h=200€, 5h=325€, 10h=600€. Nämä sisältävät valmentaja Joonas Elorannan opetuksen ja varaukset tehdään erillisestä "Golfsimulaattori ja valmennus" -kalenterista, jossa näkyvät kaikki valmentajan vapaat ajat.</p>
+          <p>Valmennussarjakortti on järkevä valinta, jos haluat säännöllisen kehityssuunnitelman koko talveksi.</p>
+
+          <h3>Liikuntaedut käyvät</h3>
+          <p>Sarjakortit voi ostaa liikuntaedulla: Epassi, Edenred ja SmartumPay. Sarjakortin osto on sitova — peruutusoikeutta ei ole, maksuja ei palauteta.</p>
+
+          <div class="art-cta">
+            <p><strong>Osta sarjakortti</strong> suoraan varauskalenteristamme.</p>
+            <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php?page=kausikortti&id_event=5&enroll=6" target="_blank" class="art-btn-sm">Osta sarjakortti →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VALMENNUS ARTIKKELI -->
+      <div class="full-article" id="valmennus-artikkeli" data-cat="harjoittelu">
+        <div class="art-cat-label">Valmennus</div>
+        <h2>Kannattaako golfvalmennus simulaattorilla — mitä saa yhden tunnin aikana?</h2>
+        <div class="fa-meta">
+          <span class="fa-date">Päivitetty 2025</span>
+          <span class="fa-read">Lukuaika: 5 min</span>
+        </div>
+        <div class="fa-body">
+          <p>Monet golfarit miettivät, onko valmennus tarpeellista. Vastauksena: yksi tunti ammattilaisen kanssa Trackman 4 -datalla voi kertoa enemmän omasta pelistäsi kuin kymmenen tuntia yksin harjoittelua. Tässä miksi.</p>
+
+          <h3>Miksi simulaattori on erinomainen valmennusympäristö?</h3>
+          <p>Perinteisessä ulkona tapahtuvassa valmennuksessa valmentaja näkee pallon lentoradan ja korjaa swingejä sen perusteella. Simulaattorissa sen sijaan käytössä on koko kirjo objektiivista dataa joka lyönnistä:</p>
+          <ul>
+            <li><strong>Clubhead speed</strong> — mailan päänopeutta parantamalla saadaan suoraan lisää matkaa</li>
+            <li><strong>Ball speed ja smash factor</strong> — kertoo kuinka tehokkaasti energia siirtyi mailalta pallolle</li>
+            <li><strong>Launch angle ja spin rate</strong> — optimaalinen lähtökulma voi lisätä carry-matkaa merkittävästi ilman muutoksia swingiin</li>
+            <li><strong>Club path ja face angle</strong> — nämä kaksi parametria selittävät 80 % siitä, miksi pallo menee sinne minne se menee</li>
+          </ul>
+          <p>Kun valmentaja Joonas Eloranta käy nämä tiedot kanssasi läpi, pääset tekemään täsmäkorjauksia — ei arvailua.</p>
+
+          <h3>Mitä yhden tunnin valmennuksessa tapahtuu?</h3>
+          <p>Tunti alkaa lyhyellä alkukartoituksella: missä haluaisit kehittyä, mitkä tilanteet tuottavat eniten ongelmia kentällä. Sen jälkeen siirrytään lyömään, ja Joonas analysoi swingejä sekä videokuvan että Trackman 4:n datan perusteella.</p>
+          <p>Tunnin rakenne tyypillisesti: 10 minuuttia kartoitusta ja alkulämmittelyä, 30–35 minuuttia aktiivista harjoittelua ja korjaustyötä, 10–15 minuuttia yhteenvetoa ja kotiharjoitusohjeiden läpikäyntiä.</p>
+
+          <h3>Kenelle valmennus sopii?</h3>
+          <p>Valmennus sopii kaikille tasoille. Aloittelija oppii oikeat perusasiat heti alusta, jolloin välttyy vuosien virheellisistä liikeradoista. Kokeneempi golfari pystyy puolestaan tunnistamaan tarkasti sen yhden asian, joka hidastaa kehitystä — ja korjaamaan sen tehokkaasti.</p>
+          <p>Erityisen hyödyllinen on talvikauden valmennuspaketti: käy 3–5 kertaa talven aikana, ja sinulla on ensi kesäksi selkeä tekniikka jota kehittää. Moni asiakas kertoo huomanneensa suurimman eron juuri siinä, kun ensimmäiset kesäkierrokset alkavat — talvella rakennettu tekniikka on jo automatisoitunut.</p>
+
+          <h3>Miten varaan valmennuksen?</h3>
+          <p>Valmennus varataan suoraan valmentaja Joonas Elorannalta. Ota yhteyttä sähköpostilla <a href="mailto:joonas@sweetgolf.fi">joonas@sweetgolf.fi</a> tai puhelimitse <a href="tel:0504070212">050 407 0212</a>. Valmennukset pidetään ÄssäGolfin Kalajärven tiloissa Alaniementie 2:ssa.</p>
+
+          <div class="art-cta">
+            <p><strong>Tutustu Joonakseen ja varaa valmennustunti</strong> — lue lisää valmennus-sivulta.</p>
+            <a href="/valmennus.html" class="art-btn-sm">Valmennus-sivu →</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /full-articles -->
+  </div><!-- /articles-section -->
+
+  <div class="cta-band">
+    <h2>Kokeile ensin,<br>osta sitten</h2>
+    <div class="cta-btns">
+      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="btn-wh">Varaa simulaattoriaika</a>
+      <a href="https://assakauppa.fi" target="_blank" class="btn-gh-cta">Simulaattoritarvikkeet</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="logo">Ässä<span>Golf</span></a>
+      <p>Suomen laadukkain golfsimulaattoriharjoittelukeskus. Ässä Golf Oy — Espoo.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Keskukset</h4>
+      <a href="/sijainnit.html">Kalajärvi, Espoo</a>
+      <a href="/sijainnit.html">Gumböle, Espoo</a>
+      <a href="/sijainnit.html#ohjeet">Ohjeet &amp; säännöt</a>
+      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="hl">Varaa vuoro →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Verkkokauppa</h4>
+      <a href="https://assakauppa.fi" target="_blank">Kaikki tuotteet</a>
+      <a href="https://assakauppa.fi/simulaattorit" target="_blank">Simulaattorit</a>
+      <a href="https://assakauppa.fi/valkokankaat" target="_blank">Valkokankaat</a>
+      <a href="https://assakauppa.fi/matot" target="_blank">Matot</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yritys</h4>
+      <a href="/valmennus.html">Valmennus</a>
+      <a href="/artikkelit.html">Artikkelit</a>
+      <a href="/yhteystiedot.html">Yhteystiedot</a>
+      <a href="mailto:info@assagolf.fi">info@assagolf.fi</a>
+      <a href="tel:0444910883">044 4910 883</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ässä Golf Oy</p>
+    <div class="footer-links">
+      <a href="/tietosuojaseloste.html">Tietosuoja</a>
+      <a href="/toimitusehdot.html">Toimitusehdot</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Hamburger
+const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
+h.addEventListener('click',()=>m.classList.toggle('open'));
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target))m.classList.remove('open');});
+
+// Filtteri — toimii oikeasti
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.cat;
+
+    // Päivitä aktiivinen painike
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Filtteroi kortit
+    document.querySelectorAll('.article-card').forEach(card => {
+      const match = cat === 'kaikki' || card.dataset.cat === cat;
+      card.style.display = match ? '' : 'none';
+    });
+
+    // Filtteroi täydet artikkelit
+    document.querySelectorAll('.full-article').forEach(art => {
+      const match = cat === 'kaikki' || art.dataset.cat === cat;
+      art.style.display = match ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

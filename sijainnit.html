@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sijainnit & Ohjeet — ÄssäGolf Espoo Kalajärvi & Gumböle</title>
+<meta name="description" content="ÄssäGolf golfsimulaattorikeskukset Espoossa — Kalajärvi (Trackman 4) ja Gumböle (ProTee VX). Saapumisohjeet, pysäköinti, tilan säännöt ja varausehdot. Avoinna 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--orange:#fb601b;--orange-dim:#d94e12;--bg:#111;--bg-card:#191919;--bg-lift:#212121;--border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);--white:#f0efed;--muted:rgba(240,239,237,0.5);--softer:rgba(240,239,237,0.28);--font-head:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;--pad-x:clamp(20px,5vw,56px);--header-h:60px;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad-x);background:rgba(17,17,17,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.logo{font-family:var(--font-head);font-weight:700;font-size:clamp(18px,3vw,22px);letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
+.logo span{color:var(--orange);}
+nav{display:flex;align-items:center;gap:2px;}
+nav a{font-size:13px;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .18s,background .18s;white-space:nowrap;}
+nav a:hover{color:var(--white);background:rgba(255,255,255,0.05);}
+nav a.active{color:var(--orange);}
+.nav-shop{color:var(--orange)!important;border:1px solid rgba(251,96,27,0.3);}
+.nav-shop:hover{background:rgba(251,96,27,0.07)!important;}
+.nav-cta{background:var(--orange)!important;color:#fff!important;font-weight:500!important;padding:7px 16px!important;}
+.nav-cta:hover{background:var(--orange-dim)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;top:var(--header-h);left:0;right:0;z-index:99;background:rgba(14,14,14,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px var(--pad-x) 20px;flex-direction:column;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:15px;color:var(--muted);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;margin-top:8px;}
+.mobile-menu .m-shop{color:var(--orange)!important;}
+.mobile-menu .m-cta{background:var(--orange);color:#fff!important;text-align:center;border-radius:4px;padding:13px 20px;font-weight:500;border-bottom:none;}
+.page{padding-top:var(--header-h);}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.btn-fill{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--font-body);font-weight:500;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;transition:background .18s,transform .15s;white-space:nowrap;}
+.btn-fill:hover{background:var(--orange-dim);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);font-size:14px;padding:12px 26px;border-radius:4px;border:1px solid var(--border-mid);text-decoration:none;transition:border-color .18s,background .18s;white-space:nowrap;}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.04);}
+.page-hero{padding:clamp(40px,6vw,56px) var(--pad-x) clamp(32px,5vw,48px);background:var(--bg-card);border-bottom:1px solid var(--border);}
+.page-hero h1{font-size:clamp(44px,7vw,76px);line-height:.92;margin-bottom:16px;}
+.page-hero p{font-size:16px;font-weight:300;color:var(--muted);max-width:500px;line-height:1.65;}
+.quick-nav{display:flex;gap:10px;flex-wrap:wrap;padding:18px var(--pad-x);background:var(--bg-card);border-bottom:1px solid var(--border);}
+.quick-nav a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:7px 16px;border:1px solid var(--border-mid);border-radius:99px;transition:all .18s;}
+.quick-nav a:hover{color:var(--white);border-color:rgba(255,255,255,.25);}
+.quick-nav a.qo{color:var(--orange);border-color:rgba(251,96,27,.3);}
+.quick-nav a.qo:hover{background:rgba(251,96,27,.07);}
+.loc-section{padding:clamp(48px,7vw,72px) var(--pad-x);border-bottom:1px solid var(--border);}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px);align-items:start;}
+.loc-grid.reverse .loc-visual{order:2;}
+.loc-grid.reverse .loc-info-block{order:1;}
+.loc-visual{border-radius:8px;overflow:hidden;background:#141414;height:clamp(220px,28vw,320px);position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.loc-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(251,96,27,.1) 0%,transparent 60%);}
+.sim-room{position:relative;z-index:1;width:clamp(140px,18vw,220px);height:clamp(82px,11vw,130px);background:#0e0e0e;border:1px solid rgba(251,96,27,.2);border-radius:3px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.sim-room::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 10px,rgba(251,96,27,.025) 10px,rgba(251,96,27,.025) 11px);}
+.sim-line{width:64px;height:2px;background:rgba(251,96,27,.5);border-radius:1px;box-shadow:0 0 12px rgba(251,96,27,.4);position:relative;z-index:1;}
+.loc-badge-abs{position:absolute;top:14px;left:14px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);background:rgba(17,17,17,.85);padding:3px 9px;border-radius:2px;border:1px solid rgba(251,96,27,.25);backdrop-filter:blur(4px);}
+.new-tag{position:absolute;top:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--orange);padding:3px 8px;border-radius:2px;}
+.loc-info-block h2{font-size:clamp(28px,4vw,46px);line-height:.95;margin-bottom:10px;}
+.loc-address{font-size:13px;color:var(--softer);margin-bottom:16px;display:flex;align-items:center;gap:6px;}
+.loc-address svg{width:13px;height:13px;stroke:var(--softer);fill:none;stroke-width:2;flex-shrink:0;}
+.loc-desc{font-size:15px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:20px;}
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
+.feat-item{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
+.feat-icon{width:28px;height:28px;border-radius:5px;background:rgba(251,96,27,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.feat-icon svg{width:14px;height:14px;stroke:var(--orange);fill:none;stroke-width:1.8;}
+.feat-item h4{font-size:12px;font-weight:600;margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px;}
+.feat-item p{font-size:11px;color:var(--muted);line-height:1.4;}
+.loc-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+.map-box{background:var(--bg-card);border:1px solid var(--border);border-radius:7px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.map-box p{font-size:12px;color:var(--softer);}
+.map-box a{font-size:12px;color:var(--orange);text-decoration:none;font-weight:500;}
+.map-box a:hover{text-decoration:underline;}
+.ohjeet-section{padding:clamp(40px,6vw,64px) var(--pad-x);background:var(--bg-card);border-top:1px solid var(--border);}
+.ohjeet-section h2{font-size:clamp(30px,4vw,48px);margin-bottom:8px;}
+.ohjeet-section .sub{font-size:14px;font-weight:300;color:var(--muted);margin-bottom:32px;max-width:600px;line-height:1.65;}
+.ohjeet-tabs{display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border);border-radius:6px;overflow:hidden;width:fit-content;}
+.ohjeet-tab{padding:11px 22px;background:transparent;border:none;color:var(--muted);font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:all .18s;border-right:1px solid var(--border);white-space:nowrap;}
+.ohjeet-tab:last-child{border-right:none;}
+.ohjeet-tab.active{background:var(--orange);color:#fff;}
+.ohjeet-tab:hover:not(.active){background:var(--bg-lift);color:var(--white);}
+.ohjeet-panel{display:none;}
+.ohjeet-panel.active{display:block;}
+.ohjeet-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ohje-card{background:var(--bg-lift);border:1px solid var(--border);border-radius:8px;padding:clamp(18px,3vw,26px);}
+.ohje-card.full{grid-column:1/-1;}
+.ohje-card h3{font-size:clamp(15px,2vw,18px);margin-bottom:14px;color:var(--white);display:flex;align-items:center;gap:10px;}
+.ohje-card h3 .icon{width:26px;height:26px;border-radius:5px;background:rgba(251,96,27,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ohje-card h3 .icon svg{width:13px;height:13px;stroke:var(--orange);fill:none;stroke-width:1.8;}
+.ohje-card ul{padding-left:1.2rem;}
+.ohje-card li{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:6px;}
+.ohje-card p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:8px;}
+.ohje-card p:last-child{margin-bottom:0;}
+.ohje-card strong{color:var(--white);font-weight:500;}
+.ohje-card.ehdot{border-color:rgba(251,96,27,.2);}
+.ehdot-list{display:flex;flex-direction:column;gap:0;}
+.ehto-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
+.ehto-row:last-child{border-bottom:none;}
+.ehto-icon{width:20px;height:20px;border-radius:50%;background:rgba(251,96,27,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.ehto-icon svg{width:10px;height:10px;stroke:var(--orange);fill:none;stroke-width:2.5;}
+.ehto-text{font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;}
+.ehto-text strong{color:var(--white);font-weight:500;}
+.notice{background:rgba(251,96,27,.07);border:1px solid rgba(251,96,27,.2);border-radius:6px;padding:12px 16px;margin-top:14px;font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;}
+.notice strong{color:var(--orange);}
+.cta-band{background:var(--orange);padding:clamp(48px,7vw,72px) var(--pad-x);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden;}
+.cta-band::before{content:'ÄSSA';position:absolute;right:-20px;top:-30px;font-family:var(--font-head);font-weight:700;font-size:clamp(100px,25vw,280px);color:rgba(0,0,0,0.08);letter-spacing:-5px;user-select:none;pointer-events:none;}
+.cta-band h2{font-size:clamp(32px,5vw,54px);color:#fff;line-height:.93;position:relative;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;}
+.btn-wh{background:#fff;color:var(--orange);font-family:var(--font-body);font-weight:600;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .18s;white-space:nowrap;}
+.btn-wh:hover{background:rgba(255,255,255,.9);}
+.btn-gh-cta{border:1px solid rgba(255,255,255,.4);color:#fff;font-size:14px;padding:12px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:border-color .18s,background .18s;}
+.btn-gh-cta:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,6vw,56px) var(--pad-x) clamp(24px,3vw,32px);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,4vw,40px);margin-bottom:clamp(24px,4vw,40px);padding-bottom:clamp(24px,4vw,40px);border-bottom:1px solid var(--border);}
+.footer-brand p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65;max-width:240px;margin-top:12px;}
+.footer-col h4{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--softer);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;font-weight:300;color:var(--muted);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:var(--white);}
+.footer-col a.hl{color:var(--orange);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:12px;color:var(--softer);}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;color:var(--softer);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:var(--muted);}
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:860px){.hamburger{display:flex;}nav a:not(.nav-cta):not(.nav-shop){display:none;}.loc-grid,.loc-grid.reverse{grid-template-columns:1fr;}.loc-grid.reverse .loc-visual,.loc-grid.reverse .loc-info-block{order:unset;}.features-grid{grid-template-columns:1fr;}.ohjeet-grid{grid-template-columns:1fr;}.ohje-card.full{grid-column:1;}.footer-top{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+@media(max-width:640px){nav a:not(.nav-cta){display:none;}.cta-band{flex-direction:column;align-items:flex-start;}.cta-btns{width:100%;}.btn-wh,.btn-gh-cta{flex:1;justify-content:center;}.footer-top{grid-template-columns:1fr;}.ohjeet-tabs{width:100%;}.ohjeet-tab{flex:1;text-align:center;font-size:11px;padding:10px 6px;}}
+@media(max-width:420px){.nav-shop{display:none;}.loc-btns{flex-direction:column;}.loc-btns a{justify-content:center;}}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Ässä<span>Golf</span></a>
+  <nav>
+    <a href="/">Etusivu</a>
+    <a href="/sijainnit.html" class="active">Sijainnit</a>
+    <a href="/hinnasto.html">Hinnasto</a>
+    <a href="/valmennus.html">Valmennus</a>
+    <a href="/artikkelit.html">Artikkelit</a>
+    <a href="https://assakauppa.fi" class="nav-shop" target="_blank">Kauppa</a>
+    <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="nav-cta">Varaa vuoro</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/">Etusivu</a>
+  <a href="/sijainnit.html">Sijainnit</a>
+  <a href="/hinnasto.html">Hinnasto</a>
+  <a href="/valmennus.html">Valmennus</a>
+  <a href="/artikkelit.html">Artikkelit</a>
+  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
+  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
+</nav>
+  <button class="hamburger" id="hamburger" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/">Etusivu</a><a href="/sijainnit.html">Sijainnit</a><a href="/hinnasto.html">Hinnasto</a><a href="/artikkelit.html">Artikkelit</a>
+  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
+  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
+</nav>
+<div class="page">
+  <div class="page-hero">
+    <p class="eyebrow">Sijainnit & Ohjeet</p>
+    <h1>Kaksi keskusta<br>Espoossa</h1>
+    <p>Molemmat tilat ovat täysin miehittämättömiä. Varaat ajan verkossa, saat ovikoodin ja tila on vain sinun käytössäsi. Löydät alta myös tarkemmat saapumisohjeet ja tilasäännöt.</p>
+  </div>
+  <div class="quick-nav">
+    <a href="#kalajarvi">📍 Kalajärvi</a>
+    <a href="#gumbole">📍 Gumböle</a>
+    <a href="#ohjeet" class="qo">📋 Ohjeet & säännöt</a>
+  </div>
+  <div class="loc-section" id="kalajarvi">
+    <div class="loc-grid">
+      <div class="loc-visual">
+        <div class="sim-room"><div class="sim-line"></div></div>
+        <div class="loc-badge-abs">Kalajärvi · Espoo</div>
+      </div>
+      <div class="loc-info-block">
+        <p class="eyebrow">Sijainti 1</p>
+        <h2>ÄssäGolf<br>Kalajärvi</h2>
+        <div class="loc-address"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Alaniementie 2, 02970 Espoo</div>
+        <p class="loc-desc">Alkuperäinen ÄssäGolf-sijaintimme Kalajärvellä. Trackman 4 -simulaattori, iso valkokangas, kallistussäädettävä puttialusta ja viihtyisä lounge-alue. Yläkerrassa voit vaihtaa golfkengät ja ottaa virvokkeen jääkaapista (maksu MobilePaylla).</p>
+        <div class="features-grid">
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4>Trackman 4</h4><p>Tutkapohjainen ammattilaistason simulaattori</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><h4>Iso valkokangas</h4><p>Realistinen pelikokemus suurella näytöllä</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><h4>Lounge-alue</h4><p>Yläkerrassa viihtyisä tila ja virvokkeet</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8 21v-2a4 4 0 018 0v2"/></svg></div><div><h4>Puttialusta</h4><p>Kallistussäädettävä puttialusta</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div><h4>Miehittämätön</h4><p>Ovikoodi sähköpostiin, pelaa omassa rauhassa</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h4>Avoinna 24/7</h4><p>Harjoittele milloin sopii</p></div></div>
+        </div>
+        <div class="loc-btns">
+          <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php?kt=tila&laji=Espoo%2C+Kalaj%E4rvi" target="_blank" class="btn-fill">Varaa aika — Kalajärvi</a>
+          <a href="https://maps.google.com/?q=Alaniementie+2,+02970+Espoo" target="_blank" class="btn-ghost">Reittiohjeet</a>
+        </div>
+        <div class="map-box"><p>📍 Alaniementie 2, 02970 Espoo</p><a href="https://maps.google.com/?q=Alaniementie+2,+02970+Espoo" target="_blank">Avaa Google Mapsissa →</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="loc-section" id="gumbole">
+    <div class="loc-grid reverse">
+      <div class="loc-visual">
+        <div class="sim-room"><div class="sim-line"></div></div>
+        <div class="loc-badge-abs">Gumböle · Espoo</div>
+      </div>
+      <div class="loc-info-block">
+        <p class="eyebrow">Sijainti 2</p>
+        <h2>ÄssäGolf<br>Gumböle</h2>
+        <div class="loc-address"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Pikkukouluntie 4, 02770 Espoo</div>
+        <p class="loc-desc">Uusin sijaintimme, avattu 2025. ProTee VX on huippuluokan simulaattori, mikä tarjoaa useita Suomikenttiä. Sisäänkäynti sijaitsee rakennuksen vastakkaisella puolella toisessa kerroksessa. Pihan kaikki parkkipaikat ovat vapaasti käytettävissä.</p>
+        <div class="features-grid">
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div><h4>ProTee VX</h4><p>Huippuluokan tarkkuus</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><div><h4>Kaksi kameraa</h4><p>Tekoälypohjainen pallo- ja maila-analytiikka</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4>Nopea data</h4><p>Lyöntidatan näyttö alle 0,3 sekuntia</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div><h4>Miehittämätön</h4><p>Ovikoodi sähköpostiin, pelaa omassa rauhassa</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h4>Avoinna 24/7</h4><p>Harjoittele milloin sopii</p></div></div>
+          <div class="feat-item"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><div><h4>200+ rataa</h4><p>GSPro käytössä</p></div></div>
+        </div>
+        <div class="loc-btns">
+          <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php?kt=tila&laji=Espoo%2C+Gumb%F6le" target="_blank" class="btn-fill">Varaa aika — Gumböle</a>
+          <a href="https://maps.google.com/?q=Pikkukouluntie+4,+02770+Espoo" target="_blank" class="btn-ghost">Reittiohjeet</a>
+        </div>
+        <div class="map-box"><p>📍 Pikkukouluntie 4, 02770 Espoo</p><a href="https://maps.google.com/?q=Pikkukouluntie+4,+02770+Espoo" target="_blank">Avaa Google Mapsissa →</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="ohjeet-section" id="ohjeet">
+    <p class="eyebrow">Ohjeet & Säännöt</p>
+    <h2>Näin toimit tilassa</h2>
+    <p class="sub">Ohjeet ovat sijaintikohtaisia — valitse alta oikea sijainti. Lue ohjeet huolellisesti ennen ensimmäistä käyntiäsi.</p>
+    <div class="ohjeet-tabs">
+      <button class="ohjeet-tab active" onclick="switchOhje('kj',this)">Kalajärvi</button>
+      <button class="ohjeet-tab" onclick="switchOhje('gb',this)">Gumböle</button>
+    </div>
+    <div class="ohjeet-panel active" id="panel-kj">
+      <div class="ohjeet-grid">
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>Pysäköinti & saapuminen</h3>
+          <p>Kiinteistö sijaitsee aidatulla alueella. <strong>Porttien aukioloajat: 05:30–21:30.</strong></p>
+          <p>Näiden aikojen ulkopuolella kiinteistölle pääsee Juvanmalmintien puoleisesta liukuportista varausvahvistuksessa saatavalla pin-koodilla. Koodilukija sijaitsee portin oikeassa reunassa.</p>
+          <p><strong>Ensisijainen reitti:</strong> Juvanmalmintien varrelta.<br><strong>Toissijainen reitti:</strong> Alaniementieltä — käänny heti vasemmalle kiinteistön pihaan, aja kaartuvasti oikealle hallin takakulmalle ja käänny vasemmalle. Käytössä vain porttien aukioloaikoina.</p>
+          <p>Tilan edessä on neljä asiakaspaikkaa — pysäköi seinän vierustalle kiinteistön suuntaisesti.</p>
+          <p>Jätä ulkokengät ja ulkovaatetus naulakoihin heti sisäänkäynnin luona. Yläkerrassa voit vaihtaa golfkengät.</p>
+        </div>
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>Varaus & ovikoodi</h3>
+          <p>Varaa vuoro "Varaa vuoro" -painikkeesta. Useampi peräkkäinen vuoro onnistuu painamalla "jatka ostoksia".</p>
+          <p>Varauksen jälkeen saat <strong>tekstiviestillä ja sähköpostilla</strong> ovikoodin, jolla pääset tilaan sisään.</p>
+          <p><strong>Ovikoodi aktivoituu 8 minuuttia ennen vuoron alkua</strong> ja lakkaa toimimasta vuoron päättyessä.</p>
+          <p>Syötä pin-koodi koodilukijaan. Jos pääsyssä on ongelmia, soita: <strong>044 4910 883</strong></p>
+          <p>Virvokkeet jääkaapissa — maksu MobilePaylla.</p>
+        </div>
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>Tilan tarvikkeet</h3>
+          <p>Tilasta löytyvät tiit ja laadukkaat pallot asiakkaiden käyttöön.</p>
+          <p><strong>Tilassa ei saa käyttää teräviä tiitikkuja</strong> — ne rikkovat valkokankaan. Käytä ainoastaan tilassa olevia tiitikkuja.</p>
+          <p>Omien pallojen käyttö on sallittua, mutta vain puhtailla ja tavallisilla palloilla.</p>
+          <p>Palauta käytetyt tarvikkeet aina niille osoitettuihin paikkoihin.</p>
+          <div class="notice"><strong>Hätätilanteessa:</strong> Alakerran oven saa avata vain hätätilanteessa. Riko oven kääntönupin suoja ja poistu viereisen tilan kautta ulos.</div>
+        </div>
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>Tilan säännöt</h3>
+          <ul>
+            <li>Omia juomia saa nauttia kohtuudella — tyhjät tölkit ja pullot roskakoriin</li>
+            <li>Jos juomaa läikkyy, siivoa omat jälkesi</li>
+            <li>Kerää kaikki omat roskasi ennen poistumista</li>
+            <li>Palauta tarvikkeet niille osoitetuille paikoille</li>
+            <li>Vuorot päättyvät tasatunnein — tavarat pakattuna niin että seuraava asiakas pystyy aloittamaan heti</li>
+            <li>Jos olet tilassa vielä 10 min vuoron päättymisen jälkeen = maksamaton vuoro</li>
+            <li>Tilassa on kameravalvonta</li>
+          </ul>
+        </div>
+        <div class="ohje-card full ehdot">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>Varausehdot</h3>
+          <div class="ehdot-list">
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Varauksen tehnyt henkilö on vastuussa omasta sekä muiden tilaan päästettyjen henkilöiden toiminnasta.</div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Tilassa saa kerrallaan olla <strong>enintään 8 henkilöä</strong>.</div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text"><strong>Varaus on sitova. Peruutusoikeutta ei ole.</strong></div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Pidätämme oikeuden periä <strong>siivousmaksun vähintään 150 €</strong> varauksen tehneeltä henkilöltä, jos tilat jätetään huonoon kuntoon.</div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Pidätämme oikeuden periä <strong>100 €/h jokaisesta maksamattomasta vuorosta</strong>, myös takautuvasti.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ohjeet-panel" id="panel-gb">
+      <div class="ohjeet-grid">
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>Pysäköinti & saapuminen</h3>
+          <p>Saapuminen simulaattorille tapahtuu Pikkukouluntieltä.</p>
+          <p><strong>Sisäänkäynti sijaitsee rakennuksen vastakkaisella puolella toisessa kerroksessa.</strong></p>
+          <p>Pihan kaikki parkkipaikat ovat vapaasti asiakkaiden käytettävissä.</p>
+          <p>Jätä ulkokengät ja ulkovarustus naulakoihin heti sisäänkäynnin luona.</p>
+        </div>
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>Varaus & ovikoodi</h3>
+          <p>Varaa vuoro "Varaa vuoro" -painikkeesta. Useampi peräkkäinen vuoro onnistuu painamalla "jatka ostoksia".</p>
+          <p>Varauksen jälkeen saat <strong>tekstiviestillä ja sähköpostilla</strong> ovikoodin, jolla pääset tilaan sisään.</p>
+          <p><strong>Ovikoodi aktivoituu 4 minuuttia ennen vuoron alkua</strong> ja lakkaa toimimasta vuoron päättyessä.</p>
+          <p>Syötä pin-koodi koodilukijaan. Jos pääsyssä on ongelmia, soita: <strong>044 4910 883</strong></p>
+        </div>
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>Tilan tarvikkeet</h3>
+          <p>Tilasta löytyvät tiit ja laadukkaat pallot asiakkaiden käyttöön.</p>
+          <p><strong>Tilassa ei saa käyttää teräviä tiitikkuja</strong> — ne rikkovat valkokankaan. Käytä ainoastaan tilassa olevia tiitikkuja.</p>
+          <p>Omien pallojen käyttö on sallittua, mutta vain puhtailla ja tavallisilla palloilla.</p>
+          <p>Palauta käytetyt tarvikkeet aina niille osoitettuihin paikkoihin.</p>
+        </div>
+        <div class="ohje-card">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>Tilan säännöt</h3>
+          <ul>
+            <li>Omia juomia saa nauttia kohtuudella — tyhjät tölkit ja pullot roskakoriin</li>
+            <li>Jos juomaa läikkyy, siivoa omat jälkesi</li>
+            <li>Kerää kaikki omat roskasi ennen poistumista</li>
+            <li>Palauta tarvikkeet niille osoitetuille paikoille</li>
+            <li>Vuorot päättyvät tasatunnein — tavarat pakattuna niin että seuraava asiakas pystyy aloittamaan heti</li>
+            <li>Jos olet tilassa vielä 10 min vuoron päättymisen jälkeen = maksamaton vuoro</li>
+            <li>Tilassa on kameravalvonta</li>
+          </ul>
+        </div>
+        <div class="ohje-card full ehdot">
+          <h3><div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>Varausehdot</h3>
+          <div class="ehdot-list">
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Varauksen tehnyt henkilö on vastuussa omasta sekä muiden tilaan päästettyjen henkilöiden toiminnasta.</div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Tilassa saa kerrallaan olla <strong>enintään 8 henkilöä</strong>.</div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text"><strong>Varaus on sitova. Peruutusoikeutta ei ole.</strong></div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Pidätämme oikeuden periä <strong>siivousmaksun vähintään 150 €</strong> varauksen tehneeltä henkilöltä, jos tilat jätetään huonoon kuntoon.</div></div>
+            <div class="ehto-row"><div class="ehto-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ehto-text">Pidätämme oikeuden periä <strong>100 €/h jokaisesta maksamattomasta vuorosta</strong>, myös takautuvasti.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-band">
+    <h2>Valmis<br>pelaamaan?</h2>
+    <div class="cta-btns">
+      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="btn-wh">Varaa simulaattoriaika</a>
+      <a href="/hinnasto.html" class="btn-gh-cta">Katso hinnasto</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="logo">Ässä<span>Golf</span></a>
+      <p>Suomen laadukkain golfsimulaattoriharjoittelukeskus. Ässä Golf Oy — Espoo.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Keskukset</h4>
+      <a href="/sijainnit.html">Kalajärvi, Espoo</a>
+      <a href="/sijainnit.html">Gumböle, Espoo</a>
+      <a href="/sijainnit.html#ohjeet">Ohjeet &amp; säännöt</a>
+      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="hl">Varaa vuoro →</a>
+    </div>
+    <div class="footer-col">
+      <h4>Verkkokauppa</h4>
+      <a href="https://assakauppa.fi" target="_blank">Kaikki tuotteet</a>
+      <a href="https://assakauppa.fi/simulaattorit" target="_blank">Simulaattorit</a>
+      <a href="https://assakauppa.fi/valkokankaat" target="_blank">Valkokankaat</a>
+      <a href="https://assakauppa.fi/matot" target="_blank">Matot</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yritys</h4>
+      <a href="/valmennus.html">Valmennus</a>
+      <a href="/artikkelit.html">Artikkelit</a>
+      <a href="/yhteystiedot.html">Yhteystiedot</a>
+      <a href="mailto:info@assagolf.fi">info@assagolf.fi</a>
+      <a href="tel:0444910883">044 4910 883</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ässä Golf Oy</p>
+    <div class="footer-links">
+      <a href="/tietosuojaseloste.html">Tietosuoja</a>
+      <a href="/toimitusehdot.html">Toimitusehdot</a>
+    </div>
+  </div>
+</footer>
+<script>
+const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
+h.addEventListener('click',()=>m.classList.toggle('open'));
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
+document.addEventListener('click',e=>{if(!h.contains(e.target)&&!m.contains(e.target))m.classList.remove('open');});
+</script>
+</body>
+</html>
