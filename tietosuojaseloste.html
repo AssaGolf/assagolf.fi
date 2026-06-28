@@ -16,7 +16,7 @@
   --border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);
   --white:#f0efed;--muted:rgba(240,239,237,0.5);--softer:rgba(240,239,237,0.28);
   --font-head:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
-  --pad-x:clamp(20px,5vw,56px);--max-w:1400px;--header-h:60px;
+  --pad-x:clamp(20px,max(5vw,(100vw - 1400px)/2),200px);--header-h:60px;
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}

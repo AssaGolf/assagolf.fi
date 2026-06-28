@@ -16,7 +16,7 @@
   --border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);
   --white:#f0efed;--muted:rgba(240,239,237,0.5);--softer:rgba(240,239,237,0.28);
   --font-head:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
-  --pad-x:clamp(20px,5vw,56px);--max-w:1400px;--header-h:60px;
+  --pad-x:clamp(20px,max(5vw,(100vw - 1400px)/2),200px);--header-h:60px;
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
@@ -90,7 +90,7 @@ footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,
 .loc-section{padding:clamp(48px,7vw,72px) var(--pad-x);border-bottom:1px solid var(--border);}
 .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px);align-items:start;}
 .loc-grid.rev .loc-visual{order:2;}.loc-grid.rev .loc-info{order:1;}
-.loc-visual{border-radius:8px;overflow:hidden;height:clamp(260px,28vw,400px);position:relative;border:1px solid var(--border);}
+.loc-visual{border-radius:8px;overflow:hidden;height:380px;position:relative;border:1px solid var(--border);}
 .loc-visual img{width:100%;height:100%;object-fit:cover;display:block;}
 .loc-badge-abs{position:absolute;top:14px;left:14px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);background:rgba(17,17,17,.88);padding:3px 9px;border-radius:2px;border:1px solid rgba(251,96,27,.25);backdrop-filter:blur(4px);}
 .loc-info h2{font-size:clamp(28px,4vw,46px);line-height:.95;margin-bottom:10px;}
