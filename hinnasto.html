@@ -20,7 +20,7 @@
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad-x);background:rgba(17,17,17,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad-x);background:rgba(17,17,17,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);box-sizing:border-box;}
 .logo{font-family:var(--font-head);font-weight:700;font-size:clamp(18px,3vw,22px);letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
 .logo span{color:var(--orange);}
 nav{display:flex;align-items:center;gap:2px;}
@@ -40,7 +40,7 @@ nav a.active{color:var(--orange);}
 .mobile-menu a:last-child{border-bottom:none;margin-top:8px;}
 .mobile-menu .m-shop{color:var(--orange)!important;}
 .mobile-menu .m-cta{background:var(--orange);color:#fff!important;text-align:center;border-radius:4px;padding:14px 20px;font-weight:500;border-bottom:none!important;margin-top:8px;}
-.page{padding-top:var(--header-h);}
+.page{padding-top:var(--header-h);} .page > section, .page > div{max-width:1600px;margin-left:auto;margin-right:auto;box-sizing:border-box;} header{box-sizing:border-box;}
 .eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
 h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
 .btn-fill{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--font-body);font-weight:500;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;transition:background .18s,transform .15s;white-space:nowrap;}
@@ -70,10 +70,11 @@ footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,
 .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
 .footer-links a{font-size:12px;color:var(--softer);text-decoration:none;transition:color .15s;}
 .footer-links a:hover{color:var(--muted);}
-@media(max-width:1100px){nav a:not(.nav-cta):not(.nav-shop){font-size:12px;padding:6px 8px;}}
+@media(max-width:1100px){nav a:not(.nav-cta):not(.nav-shop){font-size:12px;padding:6px 6px;}}
 @media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr 1fr;}.footer-brand{grid-column:1/-1;}}
 @media(max-width:860px){
   nav a:not(.nav-cta):not(.nav-shop){display:none;}
+  .nav-shop{display:inline-flex!important;}
   .hamburger{display:flex;}
   .footer-top{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}
 }
@@ -84,7 +85,7 @@ footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,
   .btn-wh,.btn-gh-cta{flex:1;justify-content:center;}
   .footer-top{grid-template-columns:1fr;}
 }
-@media(max-width:420px){.nav-shop{display:none;}}
+@media(max-width:420px){}
 
 .page-hero{padding:clamp(40px,6vw,56px) var(--pad-x) clamp(32px,5vw,48px);background:var(--bg-card);border-bottom:1px solid var(--border);}
 .page-hero h1{font-size:clamp(44px,7vw,76px);line-height:.92;margin-bottom:16px;}
@@ -308,12 +309,25 @@ table.pt .pc{font-family:var(--font-head);font-size:22px;font-weight:700;letter-
   </div>
 </footer>
 <script>
-const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
-if(h&&m){
-  h.addEventListener('click',function(e){e.stopPropagation();m.classList.toggle('open');});
-  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));
-  document.addEventListener('click',function(e){if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
-}
+document.addEventListener('DOMContentLoaded',function(){
+  var h=document.getElementById('hamburger');
+  var m=document.getElementById('mobileMenu');
+  if(!h||!m)return;
+  h.addEventListener('click',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var isOpen=m.classList.contains('open');
+    m.classList.toggle('open',!isOpen);
+  });
+  m.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){m.classList.remove('open');});
+  });
+  document.addEventListener('click',function(e){
+    if(m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target)){
+      m.classList.remove('open');
+    }
+  });
+});
 </script>
 <script>
 function switchSeason(id,btn){
