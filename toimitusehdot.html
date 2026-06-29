@@ -3,538 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toimitusehdot — ÄssäGolf</title>
-<meta name="description" content="ÄssäGolf Oy toimitusehdot. Tietoa tilaamisesta, toimituksesta, palautusoikeudesta ja reklamaatioista.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<title>Toimitusehdot — ÄssäGolf</title>
+<meta name="description" content="ÄssäGolf Oy toimitusehdot. Tietoa tilaamisesta, toimituksesta, palautusoikeudesta ja reklamaatioista.">
 <style>
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --orange: #fb601b;
-  --orange-dim: #d94e12;
-  --bg: #111;
-  --bg-card: #191919;
-  --bg-lift: #212121;
-  --border: rgba(255,255,255,0.08);
-  --border-mid: rgba(255,255,255,0.13);
-  --white: #f0efed;
-  --muted: rgba(240,239,237,0.5);
-  --softer: rgba(240,239,237,0.28);
-  --font-head: 'Barlow Condensed', sans-serif;
-  --font-body: 'Barlow', sans-serif;
-}
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--white);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+.doc-wrap { max-width:760px; }
+.doc-wrap .container { padding-top:clamp(40px,6vw,64px); padding-bottom:clamp(48px,7vw,80px); }
+.doc-wrap h1 { font-family:var(--font-head); font-weight:700; font-size:clamp(36px,5vw,54px); text-transform:uppercase; letter-spacing:1px; line-height:.93; margin-bottom:8px; }
+.doc-wrap .updated { font-size:13px; color:var(--softer); margin-bottom:36px; }
+.doc-wrap h2 { font-family:var(--font-head); font-weight:700; font-size:clamp(18px,2.5vw,24px); text-transform:uppercase; letter-spacing:1px; margin-top:32px; margin-bottom:10px; }
+.doc-wrap p,.doc-wrap li { font-size:14px; font-weight:300; color:var(--muted); line-height:1.78; margin-bottom:10px; }
+.doc-wrap ul,.doc-wrap ol { padding-left:1.4rem; margin-bottom:14px; }
+.doc-wrap li { margin-bottom:5px; }
+.doc-wrap strong { color:var(--white); font-weight:500; }
+.doc-wrap a { color:var(--orange); text-decoration:none; }
+.doc-wrap a:hover { text-decoration:underline; }
+.info-box { background:var(--bg-card); border:1px solid var(--border); border-radius:7px; padding:16px 20px; margin:14px 0; }
+.info-box p { margin:0; }
 
-/* ── CONTAINER PATTERN ── */
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 64px);
-  width: 100%;
-}
-
-/* ── HEADER ── */
-.site-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  height: 60px;
-  background: rgba(17,17,17,0.95);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-}
-.site-header .container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--white);
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.logo span { color: var(--orange); }
-.site-nav { display: flex; align-items: center; gap: 2px; }
-.site-nav a {
-  font-size: 13px;
-  color: var(--muted);
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  transition: color .18s, background .18s;
-  white-space: nowrap;
-}
-.site-nav a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
-.site-nav a.active { color: var(--orange); }
-.nav-shop {
-  color: var(--orange) !important;
-  border: 1px solid rgba(251,96,27,0.3);
-}
-.nav-shop:hover { background: rgba(251,96,27,0.07) !important; }
-.nav-cta {
-  background: var(--orange) !important;
-  color: #fff !important;
-  font-weight: 500 !important;
-  padding: 7px 16px !important;
-  border-radius: 4px;
-}
-.nav-cta:hover { background: var(--orange-dim) !important; }
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  flex-shrink: 0;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--white);
-  border-radius: 2px;
-  pointer-events: none;
-}
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 60px; left: 0; right: 0;
-  z-index: 99;
-  background: #111;
-  border-bottom: 1px solid var(--border);
-  padding: 20px 24px 28px;
-  flex-direction: column;
-}
-.mobile-menu.open { display: flex !important; }
-.mobile-menu a {
-  display: block !important;
-  font-size: 16px;
-  color: var(--muted) !important;
-  text-decoration: none;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-  transition: color .18s;
-}
-.mobile-menu a:last-child { border-bottom: none; margin-top: 8px; }
-.mobile-menu a:hover { color: var(--white) !important; }
-.mobile-menu .m-shop { color: var(--orange) !important; }
-.mobile-menu .m-cta {
-  background: var(--orange);
-  color: #fff !important;
-  text-align: center;
-  border-radius: 4px;
-  padding: 14px 20px;
-  font-weight: 500;
-  border-bottom: none !important;
-  margin-top: 8px;
-}
-
-/* ── PAGE ── */
-.page { padding-top: 60px; }
-
-/* ── EYEBROW ── */
-.eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 12px;
-}
-
-/* ── BUTTONS ── */
-.btn-fill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--orange);
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 14px;
-  padding: 13px 26px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background .18s, transform .15s;
-  white-space: nowrap;
-}
-.btn-fill:hover { background: var(--orange-dim); transform: translateY(-1px); }
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: var(--white);
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 14px;
-  padding: 12px 26px;
-  border-radius: 4px;
-  border: 1px solid var(--border-mid);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: border-color .18s, background .18s;
-}
-.btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
-
-/* ── CTA BAND ── */
-.cta-band { background: var(--orange); }
-.cta-band .container {
-  padding-top: clamp(48px, 7vw, 72px);
-  padding-bottom: clamp(48px, 7vw, 72px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  position: relative;
-  overflow: hidden;
-}
-.cta-band .container::before {
-  content: "ÄSSA";
-  position: absolute;
-  right: -20px; top: -30px;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: clamp(100px, 20vw, 260px);
-  color: rgba(0,0,0,0.08);
-  letter-spacing: -5px;
-  user-select: none;
-  pointer-events: none;
-}
-.cta-band h2 {
-  font-family: var(--font-head);
-  font-size: clamp(32px, 5vw, 54px);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
-  line-height: .93;
-  position: relative;
-}
-.cta-btns { display: flex; gap: 12px; flex-wrap: wrap; position: relative; }
-.btn-wh {
-  background: #fff;
-  color: var(--orange);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 13px 26px;
-  border-radius: 4px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  transition: background .18s;
-}
-.btn-wh:hover { background: rgba(255,255,255,.9); }
-.btn-wh-ghost {
-  border: 1px solid rgba(255,255,255,.4);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 14px;
-  padding: 12px 26px;
-  border-radius: 4px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  transition: border-color .18s, background .18s;
-}
-.btn-wh-ghost:hover { border-color: #fff; background: rgba(255,255,255,.1); }
-
-/* ── FOOTER ── */
-.site-footer { background: #0d0d0d; border-top: 1px solid var(--border); }
-.site-footer .container {
-  padding-top: clamp(40px, 6vw, 56px);
-  padding-bottom: clamp(24px, 3vw, 32px);
-}
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: clamp(20px, 4vw, 40px);
-  margin-bottom: clamp(24px, 4vw, 40px);
-  padding-bottom: clamp(24px, 4vw, 40px);
-  border-bottom: 1px solid var(--border);
-}
-.footer-brand p {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.65;
-  max-width: 240px;
-  margin-top: 12px;
-}
-.footer-col h4 {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--softer);
-  margin-bottom: 14px;
-}
-.footer-col a {
-  display: block;
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--muted);
-  text-decoration: none;
-  margin-bottom: 9px;
-  transition: color .15s;
-}
-.footer-col a:hover { color: var(--white); }
-.footer-col a.hl { color: var(--orange); }
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-bottom p { font-size: 12px; color: var(--softer); }
-.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-.footer-links a {
-  font-size: 12px;
-  color: var(--softer);
-  text-decoration: none;
-  transition: color .15s;
-}
-.footer-links a:hover { color: var(--muted); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .footer-top { grid-template-columns: 1fr 1fr 1fr; }
-  .footer-brand { grid-column: 1 / -1; }
-}
-@media (max-width: 860px) {
-  .site-nav a:not(.nav-cta):not(.nav-shop) { display: none; }
-  .hamburger { display: flex; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .footer-brand { grid-column: 1 / -1; }
-}
-@media (max-width: 640px) {
-  .site-nav a:not(.nav-cta) { display: none; }
-  .cta-band .container { flex-direction: column; align-items: flex-start; }
-  .cta-btns { width: 100%; }
-  .btn-wh, .btn-wh-ghost { flex: 1; justify-content: center; }
-  .footer-top { grid-template-columns: 1fr; }
-}
-
-/* === PAGE CSS === */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --orange:#fb601b;--orange-dim:#d94e12;
-  --bg:#111;--bg-card:#191919;--bg-lift:#212121;
-  --border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);
-  --white:#f0efed;--muted:rgba(240,239,237,0.5);--softer:rgba(240,239,237,0.28);
-  --font-head:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;
-  --pad-x:clamp(20px,5vw,56px);--header-h:60px;
-}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);background:rgba(17,17,17,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;} header > *:first-child, header > nav, header > button{position:relative;} .header-inner{max-width:1440px;width:100%;margin:0 auto;padding:0 var(--pad-x);display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:var(--font-head);font-weight:700;font-size:clamp(18px,3vw,22px);letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
-.logo span{color:var(--orange);}
-nav{display:flex;align-items:center;gap:2px;}
-header nav a{font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:4px;transition:color .18s,background .18s;white-space:nowrap;}
-header nav a:hover{color:var(--white);background:rgba(255,255,255,0.05);}
-header nav a.active{color:var(--orange);}
-.nav-shop{color:var(--orange)!important;border:1px solid rgba(251,96,27,0.3);}
-.nav-shop:hover{background:rgba(251,96,27,0.07)!important;}
-.nav-cta{background:var(--orange)!important;color:#fff!important;font-weight:500!important;padding:7px 14px!important;border-radius:4px;}
-.nav-cta:hover{background:var(--orange-dim)!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;flex-shrink:0;z-index:101;}
-.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .25s;pointer-events:none;}
-.mobile-menu{display:none;position:fixed;top:var(--header-h);left:0;right:0;z-index:99;background:#111;border-bottom:1px solid var(--border);padding:20px 24px 28px;flex-direction:column;}
-.mobile-menu.open{display:flex!important;}
-.mobile-menu a{display:block!important;font-size:16px;color:var(--muted)!important;text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);transition:color .18s;visibility:visible!important;opacity:1!important;}
-.mobile-menu a:hover{color:var(--white);}
-.mobile-menu a:last-child{border-bottom:none;margin-top:8px;}
-.mobile-menu .m-shop{color:var(--orange)!important;}
-.mobile-menu .m-cta{background:var(--orange);color:#fff!important;text-align:center;border-radius:4px;padding:14px 20px;font-weight:500;border-bottom:none!important;margin-top:8px;}
-.page{padding-top:var(--header-h);} .inner{max-width:1440px;margin:0 auto;width:100%;}
-.eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
-h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
-.btn-fill{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--font-body);font-weight:500;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;transition:background .18s,transform .15s;white-space:nowrap;}
-.btn-fill:hover{background:var(--orange-dim);transform:translateY(-1px);}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);font-family:var(--font-body);font-weight:400;font-size:14px;padding:12px 26px;border-radius:4px;border:1px solid var(--border-mid);text-decoration:none;white-space:nowrap;transition:border-color .18s,background .18s;}
-.btn-ghost:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.04);}
-.page-hero{padding:clamp(40px,6vw,56px) var(--pad-x) clamp(32px,5vw,48px);background:var(--bg-card);border-bottom:1px solid var(--border);}
-.page-hero h1{font-size:clamp(44px,7vw,76px);line-height:.92;margin-bottom:16px;}
-.page-hero p{font-size:16px;font-weight:300;color:var(--muted);max-width:500px;line-height:1.65;}
-.cta-band{background:var(--orange);padding:clamp(48px,7vw,72px) var(--pad-x);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden;}
-.cta-band::before{content:"ÄSSA";position:absolute;right:-20px;top:-30px;font-family:var(--font-head);font-weight:700;font-size:clamp(100px,25vw,280px);color:rgba(0,0,0,0.08);letter-spacing:-5px;user-select:none;pointer-events:none;}
-.cta-band h2{font-size:clamp(32px,5vw,54px);color:#fff;line-height:.93;position:relative;}
-.cta-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;}
-.btn-wh{background:#fff;color:var(--orange);font-family:var(--font-body);font-weight:600;font-size:14px;padding:13px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .18s;white-space:nowrap;}
-.btn-wh:hover{background:rgba(255,255,255,.9);}
-.btn-gh-cta{border:1px solid rgba(255,255,255,.4);color:#fff;font-size:14px;padding:12px 26px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:border-color .18s,background .18s;}
-.btn-gh-cta:hover{border-color:#fff;background:rgba(255,255,255,.1);}
-footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,6vw,56px) var(--pad-x) clamp(24px,3vw,32px);}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,4vw,40px);margin-bottom:clamp(24px,4vw,40px);padding-bottom:clamp(24px,4vw,40px);border-bottom:1px solid var(--border);}
-.footer-brand p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65;max-width:240px;margin-top:12px;}
-.footer-col h4{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--softer);margin-bottom:14px;}
-.footer-col a{display:block;font-size:13px;font-weight:300;color:var(--muted);text-decoration:none;margin-bottom:9px;transition:color .15s;}
-.footer-col a:hover{color:var(--white);}
-.footer-col a.hl{color:var(--orange);}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-bottom p{font-size:12px;color:var(--softer);}
-.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
-.footer-links a{font-size:12px;color:var(--softer);text-decoration:none;transition:color .15s;}
-.footer-links a:hover{color:var(--muted);}
-@media(max-width:1100px){nav a:not(.nav-cta):not(.nav-shop){font-size:12px;padding:6px 6px;}}
-@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr 1fr;}.footer-brand{grid-column:1/-1;}}
-@media(max-width:860px){
-  nav a:not(.nav-cta):not(.nav-shop){display:none;}
-  .nav-shop{display:inline-flex!important;}
-  .hamburger{display:flex;}
-  .footer-top{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}
-}
-@media(max-width:640px){
-  nav a:not(.nav-cta){display:none;}
-  .cta-band{flex-direction:column;align-items:flex-start;}
-  .cta-btns{width:100%;}
-  .btn-wh,.btn-gh-cta{flex:1;justify-content:center;}
-  .footer-top{grid-template-columns:1fr;}
-}
-@media(max-width:420px){}
-
-.doc-wrap{max-width:780px;margin:0 auto;padding:clamp(40px,6vw,72px) var(--pad-x);}
-.doc-wrap h1{font-size:clamp(34px,5vw,54px);line-height:.93;margin-bottom:8px;}
-.doc-wrap .updated{font-size:13px;color:var(--softer);margin-bottom:40px;}
-.doc-wrap h2{font-size:clamp(18px,2.5vw,24px);margin-top:36px;margin-bottom:12px;color:var(--white);}
-.doc-wrap p,.doc-wrap li{font-size:14px;font-weight:300;color:var(--muted);line-height:1.78;margin-bottom:10px;}
-.doc-wrap ul,.doc-wrap ol{padding-left:1.4rem;margin-bottom:14px;}
-.doc-wrap li{margin-bottom:6px;}
-.doc-wrap strong{color:var(--white);font-weight:500;}
-.doc-wrap a{color:var(--orange);text-decoration:none;}
-.doc-wrap a:hover{text-decoration:underline;}
-.doc-wrap .info-box{background:var(--bg-card);border:1px solid var(--border);border-radius:7px;padding:16px 20px;margin:16px 0;}
-.doc-wrap .info-box p{margin:0;}
 </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container">
     <a href="/" class="logo">Ässä<span>Golf</span></a>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Päänavigaatio">
       <a href="/">Etusivu</a>
       <a href="/sijainnit.html">Sijainnit</a>
       <a href="/hinnasto.html">Hinnasto</a>
       <a href="/valmennus.html">Valmennus</a>
       <a href="/artikkelit.html">Artikkelit</a>
       <a href="/yhteystiedot.html">Yhteystiedot</a>
-      <a href="https://assakauppa.fi" class="nav-shop" target="_blank">Kauppa</a>
-      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="nav-cta">Varaa vuoro</a>
+      <a href="https://assakauppa.fi" class="nav-shop" target="_blank" rel="noopener">Kauppa</a>
+      <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" class="nav-cta" target="_blank" rel="noopener">Varaa vuoro</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Avaa valikko">
+    <button class="hamburger" id="hamburger" aria-label="Avaa valikko" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-<nav class="mobile-menu" id="mobileMenu">
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilinavigaatio">
   <a href="/">Etusivu</a>
   <a href="/sijainnit.html">Sijainnit</a>
   <a href="/hinnasto.html">Hinnasto</a>
   <a href="/valmennus.html">Valmennus</a>
   <a href="/artikkelit.html">Artikkelit</a>
   <a href="/yhteystiedot.html">Yhteystiedot</a>
-  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
-  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
+  <a href="https://assakauppa.fi" class="m-shop" target="_blank" rel="noopener">Kauppa →</a>
+  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" class="m-cta" target="_blank" rel="noopener">Varaa vuoro</a>
 </nav>
-  <button class="hamburger" id="hamburger" aria-label="Avaa valikko"><span></span><span></span><span></span></button>
-  </div>
-</header>
-<nav class="mobile-menu" id="mobileMenu">
-  <a href="/">Etusivu</a>
-  <a href="/sijainnit.html">Sijainnit</a>
-  <a href="/hinnasto.html">Hinnasto</a>
-  <a href="/valmennus.html">Valmennus</a>
-  <a href="/artikkelit.html">Artikkelit</a>
-  <a href="/yhteystiedot.html">Yhteystiedot</a>
-  <a href="https://assakauppa.fi" class="m-shop" target="_blank">Kauppa →</a>
-  <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="m-cta">Varaa vuoro</a>
-</nav>
-<div class="page">
+<main class="page">
 
-  <div class="doc-wrap">
+<section class="doc-wrap" style="background:var(--bg);">
+  <div class="container">
     <p class="eyebrow">Verkkokauppa</p>
     <h1>Toimitusehdot</h1>
     <p class="updated">Päivitetty: tammikuu 2025</p>
-
     <h2>1. Myyjä</h2>
-    <div class="info-box"><p><strong>Ässä Golf Oy</strong><br>Y-tunnus: 3317445-3<br>Sähköposti: info@assagolf.fi<br>Puhelin: 044 4910 883<br>Verkkokauppa: assakauppa.fi</p></div>
-
+    <div class="info-box"><p><strong>Ässä Golf Oy</strong><br>Y-tunnus: 3317445-3<br>Sähköposti: <a href="mailto:info@assagolf.fi">info@assagolf.fi</a><br>Verkkokauppa: assakauppa.fi</p></div>
     <h2>2. Soveltamisala</h2>
-    <p>Nämä toimitusehdot koskevat ÄssäGolfin verkkokaupan (assakauppa.fi) tuotteiden myyntiä kuluttajille. Tilaamalla tuotteita verkkokaupastamme hyväksyt nämä ehdot.</p>
-
+    <p>Nämä toimitusehdot koskevat ÄssäGolfin verkkokaupan (assakauppa.fi) tuotteiden myyntiä kuluttajille. Tilaamalla tuotteita hyväksyt nämä ehdot.</p>
     <h2>3. Tilauksen tekeminen</h2>
-    <p>Tilaus tehdään assakauppa.fi-verkkokaupassa lisäämällä tuotteet ostoskoriin ja suorittamalla kassatoiminto loppuun. Tilauksen vahvistusviesti lähetetään sähköpostitse. Sopimus syntyy, kun olet saanut tilausvahvistuksen.</p>
-
+    <p>Tilaus tehdään assakauppa.fi-verkkokaupassa lisäämällä tuotteet ostoskoriin ja suorittamalla kassatoiminto loppuun. Sopimus syntyy, kun olet saanut tilausvahvistuksen sähköpostitse.</p>
     <h2>4. Hinnat</h2>
-    <p>Kaikki hinnat sisältävät arvonlisäveron. Pidätämme oikeuden muuttaa hintoja. Tilaukseen sovelletaan tilaushetkellä voimassa olleita hintoja.</p>
-
+    <p>Kaikki hinnat sisältävät arvonlisäveron. Tilaukseen sovelletaan tilaushetkellä voimassa olleita hintoja.</p>
     <h2>5. Maksaminen</h2>
-    <p>Hyväksymme seuraavat maksutavat:</p>
-    <ul>
-      <li>Pankki- ja luottokortit (Visa, Mastercard)</li>
-      <li>Verkkopankit</li>
-      <li>Lasku ja osamaksu (MobilePay / Klarna saatavuuden mukaan)</li>
-      <li>Liikuntaedut: Epassi, Edenred, SmartumPay (vain simulaattorivaraukset)</li>
-    </ul>
-    <p>Maksupalvelut toteutetaan turvallisen maksupalveluntarjoajan kautta. Emme tallenna maksukorttitietoja.</p>
-
+    <p>Hyväksymme pankki- ja luottokortit (Visa, Mastercard), verkkopankit sekä liikuntaedut Epassi, Edenred ja SmartumPay (vain simulaattorivaraukset). Maksupalvelut toteutetaan turvallisen maksupalveluntarjoajan kautta.</p>
     <h2>6. Toimitus</h2>
-    <p>Toimitamme tilaukset valitsemamme kuljetuspalvelun kautta koko Suomeen. Toimitusaika on tyypillisesti <strong>3–7 arkipäivää</strong> tilauksen vahvistamisesta. Suuremmilla tai tilaustuotteilla toimitusaika voi olla pidempi — ilmoitamme tästä erikseen.</p>
-    <p>Toimituskulut näytetään kassalla ennen tilauksen vahvistamista. Ilmoitamme lähetyksen seurantatiedot sähköpostitse.</p>
-
-    <h2>7. Nouto</h2>
-    <p>Tuotteiden nouto ei ole pääsääntöisesti mahdollista, sillä meillä ei ole fyysistä myymälää. Erityistapauksissa noudosta voi sopia ottamalla yhteyttä asiakaspalveluumme.</p>
-
-    <h2>8. Palautusoikeus</h2>
+    <p>Toimitamme tilaukset valitsemamme kuljetuspalvelun kautta koko Suomeen. Toimitusaika on tyypillisesti <strong>3–7 arkipäivää</strong>. Suuremmilla tai tilaustuotteilla toimitusaika voi olla pidempi — ilmoitamme tästä erikseen. Toimituskulut näytetään kassalla ennen tilauksen vahvistamista.</p>
+    <h2>7. Palautusoikeus</h2>
     <p>Kuluttajalla on kuluttajansuojalain mukainen <strong>14 päivän palautusoikeus</strong> tuotteen vastaanottamisesta. Palautusoikeus koskee käyttämättömiä ja alkuperäisessä pakkauksessa olevia tuotteita.</p>
-    <p>Palautusoikeus ei koske:</p>
-    <ul>
-      <li>Sinetöityjä tuotteita, joiden sinetti on rikottu (hygieniatuotteet)</li>
-      <li>Räätälöityjä tai mittatilaustuotteita</li>
-      <li>Digitaalisia palveluita, joiden toimittaminen on aloitettu suostumuksella</li>
-      <li>Golfsimulaattorin varauksia — varaukset ovat sitovia, peruutusoikeutta ei ole</li>
-    </ul>
+    <p>Palautusoikeus ei koske räätälöityjä tai mittatilaustuotteita eikä golfsimulaattorin varauksia — varaukset ovat sitovia, peruutusoikeutta ei ole.</p>
     <p>Ilmoita palautuksesta ensin sähköpostilla <a href="mailto:info@assagolf.fi">info@assagolf.fi</a>. Palautuskulut ovat asiakkaan vastuulla, ellei tuote ole virheellinen.</p>
-
-    <h2>9. Virhe tuotteessa</h2>
-    <p>Mikäli tuotteessa on valmistusvirhe tai se ei vastaa tilausta, ota yhteyttä asiakaspalveluumme 14 päivän kuluessa tuotteen vastaanottamisesta. Korjaamme asian kuluttajansuojalain mukaisesti — vaihdamme tuotteen, korjaamme virheen tai palautamme kauppahinnan.</p>
-
-    <h2>10. Vastuu</h2>
-    <p>Ässä Golf Oy ei vastaa välillisistä vahingoista. Vastuumme rajoittuu tuotteen kauppahintaan.</p>
-
-    <h2>11. Riitojen ratkaisu</h2>
-    <p>Pyrimme ratkaisemaan mahdolliset erimielisyydet ensisijaisesti neuvottelemalla. Jos sovintoon ei päästä, kuluttajalla on oikeus viedä asia kuluttajariitalautakunnan käsiteltäväksi (<a href="https://www.kuluttajariitalautakunta.fi" target="_blank">kuluttajariitalautakunta.fi</a>). Sovellettava laki on Suomen laki.</p>
-
-    <h2>12. Yhteystiedot</h2>
-    <p>Asiakaspalvelu: <a href="mailto:info@assagolf.fi">info@assagolf.fi</a> | <a href="tel:0444910883">044 4910 883</a></p>
+    <h2>8. Virhe tuotteessa</h2>
+    <p>Mikäli tuotteessa on valmistusvirhe tai se ei vastaa tilausta, ota yhteyttä 14 päivän kuluessa. Korjaamme asian kuluttajansuojalain mukaisesti.</p>
+    <h2>9. Riitojen ratkaisu</h2>
+    <p>Pyrimme ratkaisemaan erimielisyydet ensisijaisesti neuvottelemalla. Jos sovintoon ei päästä, kuluttajalla on oikeus viedä asia kuluttajariitalautakunnan käsiteltäväksi: <a href="https://www.kuluttajariitalautakunta.fi" target="_blank" rel="noopener">kuluttajariitalautakunta.fi</a>. Sovellettava laki on Suomen laki.</p>
+    <h2>10. Yhteystiedot</h2>
+    <p>Asiakaspalvelu: <a href="mailto:info@assagolf.fi">info@assagolf.fi</a> | <a href="tel:+358444910883">044 4910 883</a></p>
   </div>
+</section>
 
-</div>
+</main>
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
@@ -547,14 +101,14 @@ footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,
         <a href="/sijainnit.html">Kalajärvi, Espoo</a>
         <a href="/sijainnit.html">Gumböle, Espoo</a>
         <a href="/sijainnit.html#ohjeet">Ohjeet &amp; säännöt</a>
-        <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" class="hl">Varaa vuoro →</a>
+        <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" rel="noopener" class="hl">Varaa vuoro →</a>
       </div>
       <div class="footer-col">
         <h4>Verkkokauppa</h4>
-        <a href="https://assakauppa.fi/tuotteet/" target="_blank">Kaikki tuotteet</a>
-        <a href="https://assakauppa.fi/tuotekategoria/simulaattorit/" target="_blank">Simulaattorit</a>
-        <a href="https://assakauppa.fi/tuotekategoria/valkokankaat/" target="_blank">Valkokankaat</a>
-        <a href="https://assakauppa.fi/tuotekategoria/matot/" target="_blank">Matot</a>
+        <a href="https://assakauppa.fi/tuotteet/" target="_blank" rel="noopener">Kaikki tuotteet</a>
+        <a href="https://assakauppa.fi/tuotekategoria/simulaattorit/" target="_blank" rel="noopener">Simulaattorit</a>
+        <a href="https://assakauppa.fi/tuotekategoria/valkokankaat/" target="_blank" rel="noopener">Valkokankaat</a>
+        <a href="https://assakauppa.fi/tuotekategoria/matot/" target="_blank" rel="noopener">Matot</a>
       </div>
       <div class="footer-col">
         <h4>Yritys</h4>
@@ -562,37 +116,18 @@ footer{background:#0d0d0d;border-top:1px solid var(--border);padding:clamp(40px,
         <a href="/artikkelit.html">Artikkelit</a>
         <a href="/yhteystiedot.html">Yhteystiedot</a>
         <a href="mailto:info@assagolf.fi">info@assagolf.fi</a>
-        <a href="tel:0444910883">044 4910 883</a>
+        <a href="tel:+358444910883">044 4910 883</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Ässä Golf Oy</p>
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Lakisivut">
         <a href="/tietosuojaseloste.html">Tietosuoja</a>
         <a href="/toimitusehdot.html">Toimitusehdot</a>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var h = document.getElementById('hamburger');
-  var m = document.getElementById('mobileMenu');
-  if (!h || !m) return;
-  h.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    m.classList.toggle('open');
-  });
-  m.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { m.classList.remove('open'); });
-  });
-  document.addEventListener('click', function(e) {
-    if (m.classList.contains('open') && !m.contains(e.target) && !h.contains(e.target)) {
-      m.classList.remove('open');
-    }
-  });
-});
-</script>
+<script src="/js/main.js"></script>
 </body>
 </html>
