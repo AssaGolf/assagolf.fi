@@ -53,7 +53,8 @@
 }
 .hero h1 {
   font-family: var(--font-head); font-weight: 700;
-  font-size: clamp(54px, 9vw, 130px);
+  font-size: clamp(40px, 9vw, 130px);
+  word-break: break-word; overflow-wrap: break-word;
   text-transform: uppercase; letter-spacing: 1px;
   line-height: .93; color: var(--white);
   opacity: 0; animation: fadeUp .7s ease forwards .25s;
@@ -149,7 +150,7 @@
 .bp { font-size: 11px; font-weight: 500; color: var(--softer); background: rgba(251,96,27,.08); border: 1px solid rgba(251,96,27,.2); border-radius: 3px; padding: 3px 9px; }
 
 @media (max-width: 860px) { .shop-layout { grid-template-columns: 1fr; } .shop-text { border-right: none; border-bottom: 1px solid var(--border); } .steps-row { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .locs-grid { grid-template-columns: 1fr; } .statsbar .container { grid-template-columns: 1fr 1fr; } .stat:nth-child(2) { border-right: none; } .stat:nth-child(3) { border-top: 1px solid var(--border); } .stat:nth-child(4) { border-top: 1px solid var(--border); border-right: none; } .shop-grid { grid-template-columns: 1fr; } .hero-btns { max-width: 100%; } }
+@media (max-width: 640px) { .locs-grid { grid-template-columns: 1fr; } .statsbar .container { grid-template-columns: 1fr 1fr; } .stat:nth-child(2) { border-right: none; } .stat:nth-child(3) { border-top: 1px solid var(--border); } .stat:nth-child(4) { border-top: 1px solid var(--border); border-right: none; } .shop-grid { grid-template-columns: 1fr; } .hero-btns { max-width: 100%; } .hero h1 { font-size: clamp(32px, 10vw, 54px); } }
 
 </style>
 </head>
@@ -232,7 +233,7 @@
       </div>
       <div class="loc-card">
         <div class="loc-thumb">
-          <img src="/images/gumbole-card.jpg" alt="ÄssäGolf Gumböle simulaattoritila" loading="lazy" width="1080" height="1080">
+          <img src="/images/gumbole-main.jpg" alt="ÄssäGolf Gumböle simulaattoritila" loading="lazy" width="1080" height="1080">
           <span class="loc-badge">Gumböle · Espoo</span>
         </div>
         <div class="loc-body">
