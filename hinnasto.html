@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
@@ -187,15 +188,6 @@ function switchSeason(id, btn) {
   document.getElementById('sp-' + id).classList.add('active');
   btn.classList.add('active');
 }
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.faq-item').forEach(function(item) {
-    item.querySelector('.faq-btn').addEventListener('click', function() {
-      var open = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
-      if (!open) item.classList.add('open');
-    });
-  });
-});
 </script>
 </main>
 <footer class="site-footer">
