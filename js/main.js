@@ -1,4 +1,4 @@
-/* ÄssäGolf — main.js */
+/* ÄssäGolf: main.js */
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -76,3 +76,35 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
+/* ── EVÄSTESUOSTUMUS ──
+   Analytiikka (Google Analytics) ladataan vain suostumuksella.
+   Lisää mittaustunnus tähän (esim. 'G-XXXXXXXXXX'). Tyhjä = ei analytiikkaa, banneri näytetään silti. */
+(function () {
+  var GA_ID = '';
+  var KEY = 'assa_consent';
+  function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function loadGA() {
+    if (!GA_ID || window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date()); window.gtag('config', GA_ID, { anonymize_ip: true });
+  }
+  var c = get();
+  if (c === 'all') { loadGA(); return; }
+  if (c === 'necessary') return;
+  document.addEventListener('DOMContentLoaded', function () {
+    var b = document.createElement('div');
+    b.className = 'cc-banner'; b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', 'Evästeet');
+    b.innerHTML = '<p>Käytämme välttämättömiä evästeitä sivuston toimintaan. Hyväksymällä sallit myös analytiikkaevästeet, joiden avulla kehitämme sivustoa. <a href="/tietosuojaseloste#evasteet">Lue lisää</a></p>' +
+      '<div class="cc-btns"><button class="cc-accept" type="button">Hyväksy kaikki</button><button class="cc-nec" type="button">Vain välttämättömät</button></div>';
+    document.body.appendChild(b);
+    b.querySelector('.cc-accept').addEventListener('click', function () { set('all'); loadGA(); b.remove(); });
+    b.querySelector('.cc-nec').addEventListener('click', function () { set('necessary'); b.remove(); });
+  });
+})();

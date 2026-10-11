@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://assagolf.fi/</loc><priority>1.0</priority></url>
-  <url><loc>https://assagolf.fi/sijainnit.html</loc><priority>0.9</priority></url>
-  <url><loc>https://assagolf.fi/hinnasto.html</loc><priority>0.9</priority></url>
-  <url><loc>https://assagolf.fi/valmennus.html</loc><priority>0.8</priority></url>
-  <url><loc>https://assagolf.fi/artikkelit.html</loc><priority>0.8</priority></url>
-  <url><loc>https://assagolf.fi/yhteystiedot.html</loc><priority>0.6</priority></url>
-  <url><loc>https://assagolf.fi/tietosuojaseloste.html</loc><priority>0.3</priority></url>
-  <url><loc>https://assagolf.fi/toimitusehdot.html</loc><priority>0.3</priority></url>
+  <url><loc>https://assagolf.fi/simulaattorin-rakennus</loc><priority>0.9</priority></url>
+  <url><loc>https://assagolf.fi/sijainnit</loc><priority>0.9</priority></url>
+  <url><loc>https://assagolf.fi/hinnasto</loc><priority>0.9</priority></url>
+  <url><loc>https://assagolf.fi/valmennus</loc><priority>0.8</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit</loc><priority>0.8</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/golfsimulaattorin-rakentaminen-opas</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/trackman-vs-protee-vx-vs-foresight-gc3</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/simulaattoriharjoittelun-hyodyt</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/valkokangas-golfsimulaattoriin</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/12-viikon-harjoitteluohjelma</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/golf-sisalla-espoossa</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/sarjakortti-kannattaako</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/artikkelit/golfvalmennus-simulaattorilla</loc><priority>0.7</priority></url>
+  <url><loc>https://assagolf.fi/yhteystiedot</loc><priority>0.6</priority></url>
+  <url><loc>https://assagolf.fi/tietosuojaseloste</loc><priority>0.3</priority></url>
+  <url><loc>https://assagolf.fi/toimitusehdot</loc><priority>0.3</priority></url>
 </urlset>

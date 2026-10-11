@@ -3,19 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://assagolf.fi/valmennus">
 <link rel="stylesheet" href="/css/style.css">
-<title>Valmennus — ÄssäGolf Espoo | Joonas Eloranta</title>
-<meta name="description" content="Golfvalmennus ÄssäGolfin tiloissa Trackman 4 -simulaattorilla. Valmentaja Joonas Eloranta — yksilöllinen lyöntitekniikan analyysi datalla. Kalajärvi ja Gumböle.">
+<title>Valmennus | ÄssäGolf Espoo | Joonas Eloranta ja Bettiina Törmänen</title>
+<meta name="description" content="Golfvalmennus Espoossa 80 €/h. Hinta sisältää valmennuksen ja simulaattoritunnin. Valmentajat Joonas Eloranta ja Bettiina Törmänen, Trackman 4 ja ProTee VX, Kalajärvi tai Gumböle.">
 <style>
 
 .val-hero { background:var(--bg-card); border-bottom:1px solid var(--border); }
-.val-hero .container { padding-top:clamp(48px,7vw,72px); padding-bottom:clamp(48px,7vw,72px); display:grid; grid-template-columns:1fr minmax(auto,480px); gap:clamp(32px,6vw,72px); align-items:center; }
+.val-hero .container { padding-top:clamp(48px,7vw,72px); padding-bottom:clamp(48px,7vw,72px); display:grid; grid-template-columns:1fr minmax(auto,560px); gap:clamp(32px,6vw,72px); align-items:center; }
 .val-hero h1 { font-family:var(--font-head); font-weight:700; font-size:clamp(40px,6vw,72px); text-transform:uppercase; letter-spacing:1px; line-height:.93; margin-bottom:16px; }
 .val-hero-lead { font-size:16px; font-weight:300; color:var(--muted); line-height:1.7; max-width:460px; margin-bottom:28px; }
 .val-hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
+.coach-duo { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.coach-duo .coach-photo { aspect-ratio:3/4; }
+.coach-duo .coach-caption { padding:32px 14px 14px; }
+.coach-duo .coach-caption h3 { font-size:18px; }
 .coach-photo { border-radius:10px; overflow:hidden; border:1px solid var(--border); position:relative; aspect-ratio:1/1; }
 .coach-photo img { width:100%; height:100%; object-fit:cover; object-position:top; }
 .coach-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(10,10,10,.95) 60%); padding:40px 22px 22px; }
@@ -48,8 +54,18 @@
 .how-step h3 { font-family:var(--font-head); font-size:clamp(16px,2vw,19px); font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:9px; }
 .how-step p { font-size:13px; font-weight:300; color:var(--muted); line-height:1.65; }
 
+
+.price-band { background:var(--bg); border-bottom:1px solid var(--border); }
+.price-band .container { padding-top:clamp(28px,4vw,40px); padding-bottom:clamp(28px,4vw,40px); display:flex; align-items:center; gap:clamp(20px,4vw,48px); flex-wrap:wrap; }
+.pb-price { font-family:var(--font-head); font-weight:700; font-size:clamp(52px,7vw,80px); color:var(--orange); line-height:.9; }
+.pb-price small { font-size:.3em; color:var(--softer); letter-spacing:1px; }
+.pb-text { flex:1; min-width:260px; }
+.pb-text h2 { font-family:var(--font-head); font-weight:700; font-size:clamp(22px,3vw,30px); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.pb-text p { font-size:14px; font-weight:300; color:var(--muted); line-height:1.65; max-width:620px; }
+.pb-pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.pb-pills span { font-size:12px; font-weight:500; color:var(--softer); background:rgba(251,96,27,.08); border:1px solid rgba(251,96,27,.2); border-radius:3px; padding:4px 10px; }
 @media (max-width:860px) { .val-hero .container { grid-template-columns:1fr; } .coach-photo { max-height:400px; aspect-ratio:unset; } .benefits-grid { grid-template-columns:1fr 1fr; } .bio-card { grid-template-columns:1fr; } .how-grid { grid-template-columns:1fr; } }
-@media (max-width:640px) { .benefits-grid { grid-template-columns:1fr; } .val-hero-btns { flex-direction:column; } }
+@media (max-width:640px) { .benefits-grid { grid-template-columns:1fr; } .val-hero-btns { flex-direction:column; } .coach-duo { grid-template-columns:1fr 1fr; gap:8px; } }
 
 </style>
 </head>
@@ -59,11 +75,12 @@
     <a href="/" class="logo">Ässä<span>Golf</span></a>
     <nav class="site-nav" aria-label="Päänavigaatio">
       <a href="/">Etusivu</a>
-      <a href="/sijainnit.html">Sijainnit</a>
-      <a href="/hinnasto.html">Hinnasto</a>
-      <a href="/valmennus.html" class="active">Valmennus</a>
-      <a href="/artikkelit.html">Artikkelit</a>
-      <a href="/yhteystiedot.html">Yhteystiedot</a>
+      <a href="/sijainnit">Sijainnit</a>
+      <a href="/hinnasto">Hinnasto</a>
+      <a href="/valmennus" class="active">Valmennus</a>
+      <a href="/simulaattorin-rakennus">Rakennuspalvelu</a>
+      <a href="/artikkelit">Artikkelit</a>
+      <a href="/yhteystiedot">Yhteystiedot</a>
       <a href="https://assakauppa.fi" class="nav-shop" target="_blank" rel="noopener">Kauppa</a>
       <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" class="nav-cta" target="_blank" rel="noopener">Varaa vuoro</a>
     </nav>
@@ -74,11 +91,12 @@
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilinavigaatio">
   <a href="/">Etusivu</a>
-  <a href="/sijainnit.html">Sijainnit</a>
-  <a href="/hinnasto.html">Hinnasto</a>
-  <a href="/valmennus.html">Valmennus</a>
-  <a href="/artikkelit.html">Artikkelit</a>
-  <a href="/yhteystiedot.html">Yhteystiedot</a>
+  <a href="/sijainnit">Sijainnit</a>
+  <a href="/hinnasto">Hinnasto</a>
+  <a href="/valmennus">Valmennus</a>
+  <a href="/simulaattorin-rakennus">Rakennuspalvelu</a>
+  <a href="/artikkelit">Artikkelit</a>
+  <a href="/yhteystiedot">Yhteystiedot</a>
   <a href="https://assakauppa.fi" class="m-shop" target="_blank" rel="noopener">Kauppa →</a>
   <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" class="m-cta" target="_blank" rel="noopener">Varaa vuoro</a>
 </nav>
@@ -89,15 +107,16 @@
     <div>
       <p class="eyebrow">Valmennus</p>
       <h1>Kehitä peliäsi<br>datan avulla</h1>
-      <p class="val-hero-lead">Yksilöllinen golfvalmennus ÄssäGolfin tiloissa Trackman 4 & ProTee VX -simulaattoreilla. Lyöntitekniikan analyysi videokuvan ja tarkan mittausdatan avulla — molemmissa simulaattorikeskuksissa Espoossa.</p>
+      <p class="val-hero-lead">Yksilöllinen golfvalmennus ÄssäGolfin tiloissa Trackman 4 &amp; ProTee VX -simulaattoreilla. Valmentajina Joonas Eloranta ja Bettiina Törmänen. Lyöntitekniikan analyysi videokuvan ja tarkan mittausdatan avulla. Valmennus järjestetään molemmissa simulaattorikeskuksissa Espoossa.</p>
       <div class="val-hero-btns">
-        <a href="mailto:joonas@sweetgolf.fi" class="btn-primary">
+        <a href="#valmentajat" class="btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Varaa valmennustunti
+          Varaa valmennustunti · 80 €/h
         </a>
-        <a href="tel:+358504070212" class="btn-secondary">050 407 0212</a>
+        <a href="#hinta" class="btn-secondary">Katso hinta</a>
       </div>
     </div>
+    <div class="coach-duo">
     <div class="coach-photo">
       <img src="/images/joonas.jpg" alt="Joonas Eloranta golfvalmentaja ÄssäGolf" width="900" height="900">
       <div class="coach-caption">
@@ -105,6 +124,26 @@
         <p>Golfvalmentaja · SweetGolf</p>
       </div>
     </div>
+      <div class="coach-photo">
+        <img src="/images/bettiina.jpg" alt="Bettiina Törmänen golfvalmentaja, ÄssäGolf" width="587" height="734" style="object-position:35% 30%;">
+        <div class="coach-caption">
+          <h3>Bettiina Törmänen</h3>
+          <p>Golfvalmentaja · SweetGolf</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="price-band" id="hinta">
+  <div class="container">
+    <div class="pb-price">80 €<small> / tunti</small></div>
+    <div class="pb-text">
+      <h2>Kaikki sisältyy hintaan</h2>
+      <p>Valmennustunnin hinta 80 € sisältää sekä valmennuksen että simulaattoritunnin. Valmennus järjestetään joko Kalajärvellä (Trackman 4) tai Gumbölessä (ProTee VX). Valitse sinulle sopivampi. Hinta on sama molemmille valmentajille.</p>
+      <div class="pb-pills"><span>Valmennus + simulaattori</span><span>Sis. ALV</span><span>3 / 5 / 10 h sarjakortit 63–70 €/h</span></div>
+    </div>
+    <a href="/hinnasto#valmennus" class="btn-secondary">Katso hinnasto</a>
   </div>
 </section>
 
@@ -112,11 +151,11 @@
   <div class="container">
     <p class="eyebrow">Mitä saat</p>
     <h2 class="section-title">Mitä tunnin<br>valmennukseen kuuluu</h2>
-    <p class="section-lead">Jokainen valmennustunti on räätälöity juuri sinulle — konkreettisia korjauksia datan perusteella, ei yleispätevää ohjeistusta.</p>
+    <p class="section-lead">Jokainen valmennustunti on räätälöity juuri sinulle: konkreettisia korjauksia datan perusteella, ei yleispätevää ohjeistusta.</p>
     <div class="benefits-grid">
       <div class="benefit"><div class="benefit-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>Golfsimulaattorin data</h3><p>Jokainen lyönti analysoidaan tutkauksella. Näet reaaliajassa pallonopeuden, lähtökulman, spinin, lyöntikaaren ja paljon muuta.</p></div>
       <div class="benefit"><div class="benefit-ico"><svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82V15a1 1 0 01-1.447.894L15 13.5M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg></div><h3>Videoanalyysi</h3><p>Lyöntisi kuvataan ja käydään läpi yhdessä. Näet oman swingisi ja ymmärrät konkreettisesti mitä muuttaa.</p></div>
-      <div class="benefit"><div class="benefit-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Yksilöllinen ohjeistus</h3><p>Joonas tunnistaa juuri sinun pelisi heikot kohdat ja antaa selkeitä käytännönläheisiä korjausohjeita.</p></div>
+      <div class="benefit"><div class="benefit-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Yksilöllinen ohjeistus</h3><p>Valmentaja tunnistaa juuri sinun pelisi heikot kohdat ja antaa selkeitä käytännönläheisiä korjausohjeita.</p></div>
       <div class="benefit"><div class="benefit-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Ympärivuotinen harjoittelu</h3><p>Talvella rakennettu tekniikka siirtyy kesäkaudelle. Harjoittele myös silloin kun kentät ovat kiinni.</p></div>
       <div class="benefit"><div class="benefit-ico"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Handicapin pudotus</h3><p>Säännöllinen valmennus ja simulaattoriharjoittelu on tehokkain tapa kehittyä nopeasti.</p></div>
       <div class="benefit"><div class="benefit-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h3>Kotiharjoitusohjeet</h3><p>Saat tunnin päätteeksi konkreettiset harjoitusohjeet jatkotyöskentelyn tueksi.</p></div>
@@ -124,7 +163,7 @@
   </div>
 </section>
 
-<section class="section-pad" style="background:var(--bg-card); border-top:1px solid var(--border);">
+<section class="section-pad" id="valmentajat" style="background:var(--bg-card); border-top:1px solid var(--border);">
   <div class="container">
     <div class="bio-card">
       <div class="bio-avatar">
@@ -134,11 +173,28 @@
         <h2>Joonas Eloranta</h2>
         <p class="bio-subtitle">Golfvalmentaja · SweetGolf</p>
         <p>Joonas on tarkka ja pitkäjänteinen valmentaja, jolla on usean vuoden valmennuskokemus sekä suuri intohimo golfia kohtaan. Hän yhdistää teknisen osaamisen kärsivälliseen lähestymistapaan.</p>
-        <p>Joonas valmentaa ympäri vuoden — kesäisin Paloheinä Golfissa, Kulloo Golfissa ja Hillside Golfissa, talvisin ÄssäGolfin tiloissa sekä Kalajärvellä että Gumbölessä Trackman 4 & ProTee VX-simulaattoreilla.</p>
-        <p>Varaa aika suoraan Joonakselta sähköpostilla tai puhelimella.</p>
+        <p>Joonas valmentaa ympäri vuoden. Kesäisin Paloheinä Golfissa, Kulloo Golfissa ja Hillside Golfissa, talvisin ÄssäGolfin tiloissa sekä Kalajärvellä että Gumbölessä Trackman 4 & ProTee VX-simulaattoreilla.</p>
+        <p>Valmennustunti maksaa 80 €/h ja sisältää simulaattoriajan. Varaa aika suoraan Joonakselta sähköpostilla tai puhelimella ja kerro, kumpi sijainti (Kalajärvi vai Gumböle) sopii sinulle.</p>
         <div class="contact-pills">
           <a href="mailto:joonas@sweetgolf.fi" class="cpill"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>joonas@sweetgolf.fi</a>
           <a href="tel:+358504070212" class="cpill"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>050 407 0212</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bio-card" style="margin-top:16px;">
+      <div class="bio-avatar">
+        <img src="/images/bettiina.jpg" alt="Bettiina Törmänen" width="96" height="96" style="object-position:40% 33%; transform-origin:40% 31%; transform:translate(9px,14px) scale(2.4);">
+      </div>
+      <div class="bio-content">
+        <h2>Bettiina Törmänen</h2>
+        <p class="bio-subtitle">Golfvalmentaja · SweetGolf</p>
+        <p>Bettiinalla on pitkä tausta kilpagolfista, ja hän pelaa edelleen itse. Oma kilpailukokemus näkyy valmennuksessa: Bettiina tietää, mitä peli vaatii kentällä ja miten valmennuksen hyödyt saadaan konkreettisesti käyttöön.</p>
+        <p>Kesäisin Bettiina valmentaa Paloheinä Golfissa ja Hillside Golfissa. ÄssäGolfin simulaattoreilla valmennus järjestetään Kalajärvellä tai Gumbölessä, ja tunnin hinta on sama kuin Joonaksella: 80 €/h simulaattoriaikoineen.</p>
+        <p>Varaa aika suoraan Bettiinalta sähköpostilla tai puhelimella ja kerro, kumpi sijainti sopii sinulle.</p>
+        <div class="contact-pills">
+          <a href="mailto:tormanen.bettiina@gmail.com" class="cpill"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>tormanen.bettiina@gmail.com</a>
+          <a href="tel:+358443236466" class="cpill"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>044 3236466</a>
         </div>
       </div>
     </div>
@@ -150,13 +206,13 @@
     <p class="eyebrow">Valmennustunti</p>
     <h2 class="section-title">Miten tunti etenee</h2>
     <div class="how-grid">
-      <div class="how-step"><div class="how-num">01</div><h3>Alkukartoitus</h3><p>Joonas kartoittaa pelisi nykytilan ja tavoitteet. Missä haluaisit kehittyä — pitkä lyönti, lähipeli vai puttaus?</p></div>
-      <div class="how-step"><div class="how-num">02</div><h3>Analyysi datalla</h3><p>Lyöt useita lyöntejä golfsimulaattorin mittauksessa ja videokuvauksessa. Joonas analysoi reaaliaikaisesti.</p></div>
-      <div class="how-step"><div class="how-num">03</div><h3>Harjoittelu ja ohjeet</h3><p>Rakennat uutta tekniikkaa yhdessä Joonaksen kanssa. Tunnin päätteeksi selkeät jatkoharjoitusohjeet.</p></div>
+      <div class="how-step"><div class="how-num">01</div><h3>Alkukartoitus</h3><p>Valmentaja kartoittaa pelisi nykytilan ja tavoitteet. Missä haluaisit kehittyä: pitkässä lyönnissä, lähipelissä vai puttauksessa?</p></div>
+      <div class="how-step"><div class="how-num">02</div><h3>Analyysi datalla</h3><p>Lyöt useita lyöntejä golfsimulaattorin mittauksessa ja videokuvauksessa. Valmentaja analysoi reaaliaikaisesti.</p></div>
+      <div class="how-step"><div class="how-num">03</div><h3>Harjoittelu ja ohjeet</h3><p>Rakennat uutta tekniikkaa yhdessä valmentajan kanssa. Tunnin päätteeksi selkeät jatkoharjoitusohjeet.</p></div>
     </div>
   </div>
 </section>
-<div class="cta-band"><div class="container"><h2>Valmis<br>kehittymään?</h2><div class="cta-btns"><a href="mailto:joonas@sweetgolf.fi" class="btn-white">Varaa valmennustunti</a><a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" rel="noopener" class="btn-white-outline">Varaa simulaattoriaika</a></div></div></div>
+<div class="cta-band"><div class="container"><h2>Valmis<br>kehittymään?</h2><div class="cta-btns"><a href="#valmentajat" class="btn-white">Varaa valmennustunti</a><a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" rel="noopener" class="btn-white-outline">Varaa simulaattoriaika</a></div></div></div>
 </main>
 <footer class="site-footer">
   <div class="container">
@@ -167,9 +223,9 @@
       </div>
       <div class="footer-col">
         <h4>Keskukset</h4>
-        <a href="/sijainnit.html">Kalajärvi, Espoo</a>
-        <a href="/sijainnit.html">Gumböle, Espoo</a>
-        <a href="/sijainnit.html#ohjeet">Ohjeet &amp; säännöt</a>
+        <a href="/sijainnit">Kalajärvi, Espoo</a>
+        <a href="/sijainnit">Gumböle, Espoo</a>
+        <a href="/sijainnit#ohjeet">Ohjeet &amp; säännöt</a>
         <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" rel="noopener" class="hl">Varaa vuoro →</a>
       </div>
       <div class="footer-col">
@@ -181,9 +237,10 @@
       </div>
       <div class="footer-col">
         <h4>Yritys</h4>
-        <a href="/valmennus.html">Valmennus</a>
-        <a href="/artikkelit.html">Artikkelit</a>
-        <a href="/yhteystiedot.html">Yhteystiedot</a>
+        <a href="/valmennus">Valmennus</a>
+        <a href="/simulaattorin-rakennus">Simulaattorin rakennus</a>
+        <a href="/artikkelit">Artikkelit</a>
+        <a href="/yhteystiedot">Yhteystiedot</a>
         <a href="mailto:info@assagolf.fi">info@assagolf.fi</a>
         <a href="tel:+358444910883">044 4910 883</a>
       </div>
@@ -191,8 +248,8 @@
     <div class="footer-bottom">
       <p>© 2026 Ässä Golf Oy</p>
       <nav class="footer-links" aria-label="Lakisivut">
-        <a href="/tietosuojaseloste.html">Tietosuoja</a>
-        <a href="/toimitusehdot.html">Toimitusehdot</a>
+        <a href="/tietosuojaseloste">Tietosuoja</a>
+        <a href="/toimitusehdot">Toimitusehdot</a>
       </nav>
     </div>
   </div>

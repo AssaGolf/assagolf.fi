@@ -7,12 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://assagolf.fi/">
 <link rel="stylesheet" href="/css/style.css">
-<title>ÄssäGolf — Golfsimulaattorikeskus Espoo | Trackman 4 &amp; ProTee VX</title>
-<meta name="description" content="ÄssäGolf — Suomen laadukkain golfsimulaattoriharjoittelukeskus Espoossa. Trackman 4 ja ProTee VX, avoinna 24/7. Varaa aika tai selaa simulaattoritarvikkeita.">
+<title>ÄssäGolf | Golfsimulaattorikeskukset Espoossa, golfsimulaattorien rakennus ja tarvikemyynti Suomessa</title>
+<meta name="description" content="ÄssäGolf: golfsimulaattorikeskukset Espoossa (Trackman 4 ja ProTee VX, avoinna 24/7), golfsimulaattorien suunnittelu ja rakennus avaimet käteen kotiin ja yrityksille sekä golfsimulaattoritarvikkeiden myynti verkkokaupassa.">
 <style>
 
-/* INDEX — page-specific styles */
+/* INDEX: page-specific styles */
 .hero {
   min-height: 100svh;
   max-height: 1080px;
@@ -102,7 +103,7 @@
 
 /* STATS */
 .statsbar { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.statsbar .container { display: grid; grid-template-columns: repeat(4,1fr); }
+.statsbar .container { display: grid; grid-template-columns: repeat(3,1fr); }
 .stat { padding: clamp(16px,3vw,28px) 16px; text-align: center; border-right: 1px solid var(--border); }
 .stat:last-child { border-right: none; }
 .stat-n { font-family: var(--font-head); font-weight: 700; font-size: clamp(26px,4vw,40px); color: var(--orange); line-height: 1; }
@@ -150,10 +151,31 @@
 .benefit-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .bp { font-size: 11px; font-weight: 500; color: var(--softer); background: rgba(251,96,27,.08); border: 1px solid rgba(251,96,27,.2); border-radius: 3px; padding: 3px 9px; }
 
+
+/* BUILD */
+.section-build { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: clamp(56px,7vw,96px) 0; }
+.build-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px,5vw,64px); align-items: center; }
+.build-text .section-title { font-size:clamp(28px,3.3vw,44px); }
+.build-text p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 14px; max-width: 520px; }
+.build-points { list-style: none; margin: 18px 0 26px; }
+.build-points li { font-size: 14px; font-weight: 300; color: var(--muted); padding: 9px 0 9px 24px; border-top: 1px solid var(--border); position: relative; }
+.build-points li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+.build-points strong { color: var(--white); font-weight: 500; }
+.build-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.build-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.build-imgs figure { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); position: relative; }
+.build-imgs figure:first-child { grid-column: 1 / -1; }
+.build-imgs img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+.build-imgs figure:first-child img { aspect-ratio: 16/9; }
+.build-imgs figcaption { position: absolute; left: 10px; bottom: 10px; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); background: rgba(17,17,17,.88); padding: 3px 9px; border-radius: 2px; border: 1px solid rgba(251,96,27,.25); }
+@media (max-width: 860px) { .build-layout { grid-template-columns: 1fr; } }
 @media (max-width: 860px) { .shop-layout { grid-template-columns: 1fr; } .shop-text { border-right: none; border-bottom: 1px solid var(--border); } .steps-row { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .locs-grid { grid-template-columns: 1fr; } .statsbar .container { grid-template-columns: 1fr 1fr; } .stat:nth-child(2) { border-right: none; } .stat:nth-child(3) { border-top: 1px solid var(--border); } .stat:nth-child(4) { border-top: 1px solid var(--border); border-right: none; } .shop-grid { grid-template-columns: 1fr; } .hero-btns { max-width: 100%; } .hero h1 { font-size: clamp(32px, 10vw, 54px); } }
+@media (max-width: 640px) { .locs-grid { grid-template-columns: 1fr; } .stat { padding-left: 6px; padding-right: 6px; } .stat-l { letter-spacing: .5px; } .shop-grid { grid-template-columns: 1fr; } .hero-btns { max-width: 100%; } .hero h1 { font-size: clamp(32px, 10vw, 54px); } }
 
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"LocalBusiness","@id":"https://assagolf.fi/#kalajarvi","name":"ÄssäGolf Kalajärvi","url":"https://assagolf.fi/sijainnit","telephone":"+358444910883","email":"info@assagolf.fi","address":{"@type":"PostalAddress","streetAddress":"Alaniementie 2","postalCode":"02970","addressLocality":"Espoo","addressCountry":"FI"},"openingHours":"Mo-Su 00:00-24:00","description":"Miehittämätön golfsimulaattorikeskus, Trackman 4."},
+{"@type":"LocalBusiness","@id":"https://assagolf.fi/#gumbole","name":"ÄssäGolf Gumböle","url":"https://assagolf.fi/sijainnit","telephone":"+358444910883","email":"info@assagolf.fi","address":{"@type":"PostalAddress","streetAddress":"Pikkukouluntie 4","postalCode":"02770","addressLocality":"Espoo","addressCountry":"FI"},"openingHours":"Mo-Su 00:00-24:00","description":"Miehittämätön golfsimulaattorikeskus, ProTee VX."}]}</script>
 </head>
 <body>
 <header class="site-header">
@@ -161,11 +183,12 @@
     <a href="/" class="logo">Ässä<span>Golf</span></a>
     <nav class="site-nav" aria-label="Päänavigaatio">
       <a href="/" class="active">Etusivu</a>
-      <a href="/sijainnit.html">Sijainnit</a>
-      <a href="/hinnasto.html">Hinnasto</a>
-      <a href="/valmennus.html">Valmennus</a>
-      <a href="/artikkelit.html">Artikkelit</a>
-      <a href="/yhteystiedot.html">Yhteystiedot</a>
+      <a href="/sijainnit">Sijainnit</a>
+      <a href="/hinnasto">Hinnasto</a>
+      <a href="/valmennus">Valmennus</a>
+      <a href="/simulaattorin-rakennus">Rakennuspalvelu</a>
+      <a href="/artikkelit">Artikkelit</a>
+      <a href="/yhteystiedot">Yhteystiedot</a>
       <a href="https://assakauppa.fi" class="nav-shop" target="_blank" rel="noopener">Kauppa</a>
       <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" class="nav-cta" target="_blank" rel="noopener">Varaa vuoro</a>
     </nav>
@@ -176,11 +199,12 @@
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilinavigaatio">
   <a href="/">Etusivu</a>
-  <a href="/sijainnit.html">Sijainnit</a>
-  <a href="/hinnasto.html">Hinnasto</a>
-  <a href="/valmennus.html">Valmennus</a>
-  <a href="/artikkelit.html">Artikkelit</a>
-  <a href="/yhteystiedot.html">Yhteystiedot</a>
+  <a href="/sijainnit">Sijainnit</a>
+  <a href="/hinnasto">Hinnasto</a>
+  <a href="/valmennus">Valmennus</a>
+  <a href="/simulaattorin-rakennus">Rakennuspalvelu</a>
+  <a href="/artikkelit">Artikkelit</a>
+  <a href="/yhteystiedot">Yhteystiedot</a>
   <a href="https://assakauppa.fi" class="m-shop" target="_blank" rel="noopener">Kauppa →</a>
   <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" class="m-cta" target="_blank" rel="noopener">Varaa vuoro</a>
 </nav>
@@ -192,7 +216,7 @@
   <div class="container">
     <h1>Kaikki<br>golf<br><em>simulaattoreista</em></h1>
     <p class="hero-sub">Laadukkaat golfsimulaattorit</p>
-    <p class="hero-desc">Miehittämättömät simulaattorikeskukset Espoossa. Trackman 4 ja ProTee VX, yli 200 virtuaalirataa — harjoittele omassa rauhassasi. Golfsimulaattoritarvikkeet verkkokaupasta.</p>
+    <p class="hero-desc">Miehittämättömät golfsimulaattorit Espoossa, joissa harjoittelet omassa rauhassasi Trackman- tai ProTee VX -laitteella. Suunnittelemme ja rakennamme myös teidän golfsimulaattorinne avaimet käteen palveluna!</p>
     <div class="hero-btns">
       <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" rel="noopener" class="hero-btn-main">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -201,6 +225,10 @@
       <a href="https://assakauppa.fi" target="_blank" rel="noopener" class="hero-btn-sec">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         Simulaattoritarvikkeet
+      </a>
+      <a href="/simulaattorin-rakennus" class="hero-btn-sec">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Rakennamme simulaattorisi
       </a>
     </div>
   </div>
@@ -211,7 +239,6 @@
     <div class="stat"><div class="stat-n">2</div><div class="stat-l">Simulaattorikeskusta</div></div>
     <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Auki ympäri vuoden</div></div>
     <div class="stat"><div class="stat-n">200+</div><div class="stat-l">Virtuaalirataa</div></div>
-    <div class="stat"><div class="stat-n">TM4 & ProTee VX</div><div class="stat-l">Simulaattorit</div></div>
   </div>
 </div>
 
@@ -248,6 +275,29 @@
   </div>
 </section>
 
+<section class="section-build" id="rakennuspalvelu">
+  <div class="container">
+    <div class="build-layout">
+      <div class="build-text">
+        <p class="eyebrow">Rakennuspalvelu</p>
+        <h2 class="section-title">Rakennamme golfsimulaattorin<br>juuri sinun tarpeidesi<br>mukaisesti</h2>
+        <p>Suunnittelemme ja toteutamme golfsimulaattorin kotiisi tai yrityksesi tiloihin tilan mittauksesta valmiiseen, käyttöönotettuun simulaattoriin saakka. Olemme rakentaneet useita golfsimulaattoreita ja pyöritämme itse omia simulaattorikeskuksia, joten tiedämme mikä toimii käytännössä.</p>
+        <ul class="build-points">
+          <li><strong>Kotisimulaattori</strong> autotalliin, kellariin tai harrastetilaan</li>
+          <li><strong>Kaupallinen simulaattori</strong> yritykselle, klubille tai omaksi liiketoiminnaksi</li>
+          <li><strong>Avaimet käteen:</strong> suunnittelu, rakennus, laitteet ja käyttöönotto</li>
+        </ul>
+        <div class="build-btns"><a href="/simulaattorin-rakennus" class="btn-primary">Lue rakennuspalvelusta</a><a href="/yhteystiedot" class="btn-secondary">Pyydä tarjous</a></div>
+      </div>
+      <div class="build-imgs">
+        <figure><img src="/images/projektit/gumbole-06-valmis.jpg" alt="Valmis ProTee VX -simulaattori Gumbölessä" loading="lazy" width="1600" height="1200"><figcaption>Valmis · Gumböle</figcaption></figure>
+        <figure><img src="/images/projektit/gumbole-03-kangas-ja-nurmi.jpg" alt="Simulaattorin rakennus: kangas ja nurmi asennettuna" loading="lazy" width="1600" height="1200"><figcaption>Rakenteilla</figcaption></figure>
+        <figure><img src="/images/projektit/gumbole-04-akustiikkapaneelit.jpg" alt="Akustiikkapaneelien asennus" loading="lazy" width="1200" height="1600" style="object-position:center;"><figcaption>Akustiikka</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="shop-band">
   <div class="container" style="padding:0; max-width:1400px;">
     <div class="shop-layout">
@@ -255,14 +305,14 @@
         <p class="eyebrow">Verkkokauppa</p>
         <h2 class="section-title" style="font-size:clamp(28px,4vw,48px);">Kaikki<br>golfsimulaattoriin</h2>
         <p>Valkokankaat, simulaattorilaitteet, matot, akustiikkapaneelit, pallot ja tiit.</p>
-        <p>Suunnittelu- ja asennuspalvelu avaimet käteen, toteutamme golfsimulaattorin täysin alusta loppuun. Meiltä saat kaiken golfsimulaattoriin liittyvän.</p>
+        <p>Tarvitsetko apua suunnitteluun? <a href="/simulaattorin-rakennus" style="color:var(--orange);">Rakennamme simulaattorin avaimet käteen palveluna.</a></p>
         <a href="https://assakauppa.fi" target="_blank" rel="noopener" class="btn-primary" style="align-self:flex-start;">Siirry verkkokauppaan →</a>
       </div>
       <div class="shop-grid">
         <a href="https://assakauppa.fi/product-category/valkokankaat/" target="_blank" rel="noopener" class="prod-tile"><div class="prod-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>Valkokankaat</h4><p>Impact screen kaiken kokoisiin simulaattoritiloihin</p></a>
-        <a href="https://assakauppa.fi/product-category/simulaattorit/" target="_blank" rel="noopener" class="prod-tile"><div class="prod-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Simulaattorit</h4><p>Foresight, ProTee — suosituimmat laitteet</p></a>
+        <a href="https://assakauppa.fi/product-category/simulaattorit/" target="_blank" rel="noopener" class="prod-tile"><div class="prod-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Simulaattorit</h4><p>Foresight ja ProTee, suosituimmat laitteet</p></a>
         <a href="https://assakauppa.fi/product-category/matot/" target="_blank" rel="noopener" class="prod-tile"><div class="prod-ico"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="10" rx="2"/><path d="M7 8V6a2 2 0 014 0v2M13 8V6a2 2 0 014 0v2"/></svg></div><h4>Matot &amp; tekonurmi</h4><p>Lyöntimatot ja tekonurmi eri kokoluokissa</p></a>
-        <a href="https://assakauppa.fi/yhteystiedot/" target="_blank" rel="noopener" class="prod-tile"><div class="prod-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><h4>Avaimet käteen</h4><p>Suunnittelu- ja asennuspalvelu alusta loppuun</p></a>
+        <a href="/simulaattorin-rakennus" class="prod-tile"><div class="prod-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><h4>Avaimet käteen</h4><p>Suunnittelu- ja asennuspalvelu alusta loppuun</p></a>
       </div>
     </div>
   </div>
@@ -313,9 +363,9 @@
       </div>
       <div class="footer-col">
         <h4>Keskukset</h4>
-        <a href="/sijainnit.html">Kalajärvi, Espoo</a>
-        <a href="/sijainnit.html">Gumböle, Espoo</a>
-        <a href="/sijainnit.html#ohjeet">Ohjeet &amp; säännöt</a>
+        <a href="/sijainnit">Kalajärvi, Espoo</a>
+        <a href="/sijainnit">Gumböle, Espoo</a>
+        <a href="/sijainnit#ohjeet">Ohjeet &amp; säännöt</a>
         <a href="https://golf.asio.fi/onlinekalenteri/assagolf/guest.php" target="_blank" rel="noopener" class="hl">Varaa vuoro →</a>
       </div>
       <div class="footer-col">
@@ -327,9 +377,10 @@
       </div>
       <div class="footer-col">
         <h4>Yritys</h4>
-        <a href="/valmennus.html">Valmennus</a>
-        <a href="/artikkelit.html">Artikkelit</a>
-        <a href="/yhteystiedot.html">Yhteystiedot</a>
+        <a href="/valmennus">Valmennus</a>
+        <a href="/simulaattorin-rakennus">Simulaattorin rakennus</a>
+        <a href="/artikkelit">Artikkelit</a>
+        <a href="/yhteystiedot">Yhteystiedot</a>
         <a href="mailto:info@assagolf.fi">info@assagolf.fi</a>
         <a href="tel:+358444910883">044 4910 883</a>
       </div>
@@ -337,8 +388,8 @@
     <div class="footer-bottom">
       <p>© 2026 Ässä Golf Oy</p>
       <nav class="footer-links" aria-label="Lakisivut">
-        <a href="/tietosuojaseloste.html">Tietosuoja</a>
-        <a href="/toimitusehdot.html">Toimitusehdot</a>
+        <a href="/tietosuojaseloste">Tietosuoja</a>
+        <a href="/toimitusehdot">Toimitusehdot</a>
       </nav>
     </div>
   </div>
