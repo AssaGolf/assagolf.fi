@@ -474,7 +474,6 @@ img { display: block; max-width: 100%; }
 .split-grid > *, .proj-cards > *, .phase > *, .build-layout > *, .hero-split .container > * { min-width:0; }
 @media (max-width:640px) {
   .hero-actions .btn-primary, .hero-actions .btn-secondary, .build-btns a, .contact-strip a { white-space:normal; justify-content:center; flex:1 1 100%; text-align:center; }
-  .site-nav .nav-shop { display:none; }
   .page-hero h1 { overflow-wrap:anywhere; }
 }
 
@@ -508,3 +507,11 @@ img { display: block; max-width: 100%; }
 .steps-4 { grid-template-columns:repeat(4,1fr); }
 @media(max-width:860px){ .steps-4 { grid-template-columns:1fr 1fr; } }
 @media(max-width:640px){ .steps-4 { grid-template-columns:1fr; } }
+
+@media (max-width:380px) {
+  .site-nav { gap:5px; }
+  .site-nav .nav-cta, .site-nav .nav-shop { padding:6px 9px; font-size:12px; }
+  .site-header .container { gap:8px; }
+  .logo { font-size:18px; letter-spacing:1.5px; }
+  .hamburger { margin-left:0; }
+}
